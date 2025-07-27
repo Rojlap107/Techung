@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Music - Techung</title>
+    <style>
+        .albums-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+        .album-item {
+            display: flex;
+            gap: 2rem;
+            background-color: white;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .album-cover-left {
+            width: 300px;
+            height: 300px;
+            background-color: #f0f0f0;
+            flex-shrink: 0;
+        }
+        .album-info-right {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Albums Page</h1>
+    <div class="albums-grid" id="allAlbumsGrid">
+        <!-- Albums will be loaded here -->
+    </div>
+
+    <script src="albums.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const allAlbums = getAllAlbums();
+            console.log('Albums loaded:', allAlbums);
+            
+            const container = document.getElementById('allAlbumsGrid');
+            
+            if (allAlbums.length === 0) {
+                container.innerHTML = '<p>No albums found</p>';
+                return;
+            }
+            
+            allAlbums.forEach(album => {
+                const albumDiv = document.createElement('div');
+                albumDiv.className = 'album-item';
+                albumDiv.innerHTML = `
+                    <div class="album-cover-left">
+                        <h3>Cover</h3>
+                    </div>
+                    <div class="album-info-right">
+                        <h2>${album.title}</h2>
+                        <p>Artist: ${album.artist || 'Techung'}</p>
+                        <p>Year: ${album.year}</p>
+                        <p>Songs: ${album.songs.length}</p>
+                    </div>
+                `;
+                container.appendChild(albumDiv);
+            });
+        });
+    </script>
+</body>
+</html>

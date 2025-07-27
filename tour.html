@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour - Techung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="tour.html" class="active">Tour</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+            </ul>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-white.png" alt="Techung">
+                </a>
+            </div>
+            <ul class="nav-right">
+                <li><a href="epk.html">EPK</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <section class="tour-hero">
+            <div class="container">
+                <!-- Hero section with background image only -->
+            </div>
+        </section>
+
+        <section class="tour-dates">
+            <div class="container">
+                <h2>Upcoming Events</h2>
+
+                <div class="tour-filters">
+                    <select id="locationFilter">
+                        <option value="">All Locations</option>
+                    </select>
+                </div>
+
+                <div class="tour-list" id="tourList">
+                    <!-- Tour events will be loaded dynamically -->
+                </div>
+
+                <div class="booking-info">
+                    <h3>Private Events & Bookings</h3>
+                    <p>For private events, cultural celebrations, and booking inquiries, please <a href="contact.html">contact us</a>.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Techung. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="events.js"></script>
+    <script>
+        // Header remains fixed - no hide/show functionality needed
+
+        // Load all tour events on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            populateLocationFilter();
+            loadAllTourEvents();
+            
+            // Add event listener for location filter
+            document.getElementById('locationFilter').addEventListener('change', function() {
+                loadAllTourEvents();
+            });
+        });
+
+        function populateLocationFilter() {
+            const allEvents = getUpcomingEvents();
+            const locations = [...new Set(allEvents.map(event => event.location))].sort();
+            const filterSelect = document.getElementById('locationFilter');
+            
+            locations.forEach(location => {
+                const option = document.createElement('option');
+                option.value = location;
+                option.textContent = location;
+                filterSelect.appendChild(option);
+            });
+        }
+
+        function loadAllTourEvents() {
+            const allEvents = getUpcomingEvents();
+            const selectedLocation = document.getElementById('locationFilter').value;
+            
+            // Filter events by location if selected
+            const filteredEvents = selectedLocation 
+                ? allEvents.filter(event => event.location === selectedLocation)
+                : allEvents;
+            
+            const container = document.getElementById('tourList');
+            
+            if (filteredEvents.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666;">No upcoming events scheduled for this location.</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            filteredEvents.forEach(event => {
+                const formattedDate = formatDate(event.date);
+                const tourItem = document.createElement('div');
+                tourItem.className = 'tour-item';
+                
+                tourItem.innerHTML = `
+                    <div class="tour-date">
+                        <span class="date-text">${formattedDate.month} ${formattedDate.day}</span>
+                    </div>
+                    <div class="tour-details">
+                        <h3 class="venue-name">${event.venue}</h3>
+                        <p class="venue-location">${event.location}</p>
+                    </div>
+                    <div class="tour-action">
+                        <a href="${event.ticketUrl}" class="buy-tickets-btn">DETAILS</a>
+                    </div>
+                `;
+                
+                container.appendChild(tourItem);
+            });
+        }
+    </script>
+</body>
+</html>

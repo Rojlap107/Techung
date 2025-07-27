@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - Techung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-left">
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="music.html" class="active">Music</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+            </ul>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo-white.png" alt="Techung">
+                </a>
+            </div>
+            <ul class="nav-right">
+                <li><a href="epk.html">EPK</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <section class="music-hero">
+            <div class="container">
+                <!-- Hero section with background image only -->
+            </div>
+        </section>
+
+        <section class="albums">
+            <div class="container">
+                <div class="album-filters">
+                    <select id="sortFilter">
+                        <option value="year-desc">Year (Newest First)</option>
+                        <option value="year-asc">Year (Oldest First)</option>
+                        <option value="release-desc">Release Date (Newest First)</option>
+                        <option value="release-asc">Release Date (Oldest First)</option>
+                    </select>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search albums or songs..." />
+                        <button id="clearSearch" class="clear-search-btn">×</button>
+                    </div>
+                </div>
+
+                <div class="albums-grid" id="allAlbumsGrid">
+                    <!-- Albums will be loaded dynamically -->
+                </div>
+
+                <div class="pagination-container" id="paginationContainer">
+                    <div class="pagination-info">
+                        <span id="paginationInfo">Showing 1-5 of 11 albums</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button id="prevPage" class="pagination-btn" disabled>‹ Previous</button>
+                        <div class="pagination-numbers" id="paginationNumbers">
+                            <!-- Page numbers will be generated dynamically -->
+                        </div>
+                        <button id="nextPage" class="pagination-btn">Next ›</button>
+                    </div>
+                </div>
+
+                <div class="streaming-platforms">
+                    <h3>Available On</h3>
+                    <div class="platforms">
+                        <a href="https://open.spotify.com/artist/01xWxgGOLvSNd1Euhc0MdD" class="platform-link" target="_blank">Spotify</a>
+                        <a href="https://music.apple.com/us/artist/techung/43638364" class="platform-link" target="_blank">Apple Music</a>
+                        <a href="https://www.youtube.com/channel/UCnyphyOaFjbTvsRqHEXj2LQ" class="platform-link" target="_blank">YouTube Music</a>
+                        <a href="https://techung.bandcamp.com" class="platform-link" target="_blank">Bandcamp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        /* Search and Filter Styles */
+        .album-filters {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        #searchInput {
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 300px;
+            background: white;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: #333;
+            box-shadow: 0 0 0 2px rgba(51, 51, 51, 0.1);
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            right: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .clear-search-btn:hover {
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        #sortFilter {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        #sortFilter:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        /* Responsive design for search */
+        @media (max-width: 768px) {
+            .album-filters {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            #searchInput {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Pagination Styles */
+        .pagination-container {
+            margin: 3rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pagination-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .pagination-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        .pagination-btn:disabled {
+            color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .pagination-numbers {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .pagination-number {
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 1px solid #ddd;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .pagination-number:hover {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        .pagination-number.active {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .pagination-number.active:hover {
+            background: #555;
+        }
+
+        /* Responsive pagination */
+        @media (max-width: 768px) {
+            .pagination-container {
+                margin: 2rem 0;
+            }
+
+            .pagination-controls {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .pagination-btn {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .pagination-number {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="contact.html" class="get-in-touch-btn">Get in Touch</a>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="copyright">Copyright 2025 © Techung</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="albums.js"></script>
+    <script>
+        // Pagination variables
+        let currentPage = 1;
+        const albumsPerPage = 5;
+        let sortedAlbums = [];
+        let filteredAlbums = [];
+
+        // Load all albums on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllAlbums();
+            
+            // Add event listener for sort filter
+            document.getElementById('sortFilter').addEventListener('change', function() {
+                currentPage = 1; // Reset to first page when sorting changes
+                loadAllAlbums();
+            });
+
+            // Add event listeners for search
+            document.getElementById('searchInput').addEventListener('input', function() {
+                currentPage = 1; // Reset to first page when searching
+                loadAllAlbums();
+            });
+
+            document.getElementById('clearSearch').addEventListener('click', function() {
+                document.getElementById('searchInput').value = '';
+                currentPage = 1;
+                loadAllAlbums();
+            });
+
+            // Add event listeners for pagination
+            document.getElementById('prevPage').addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayAlbums();
+                    scrollToAlbums();
+                }
+            });
+
+            document.getElementById('nextPage').addEventListener('click', function() {
+                const totalPages = Math.ceil(sortedAlbums.length / albumsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayAlbums();
+                    scrollToAlbums();
+                }
+            });
+        });
+
+        function loadAllAlbums() {
+            let allAlbums = getAllAlbums();
+            const selectedSort = document.getElementById('sortFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            // Filter albums based on search term
+            if (searchTerm) {
+                filteredAlbums = allAlbums.filter(album => {
+                    // Search in album title
+                    const titleMatch = album.title.toLowerCase().includes(searchTerm);
+                    
+                    // Search in song titles
+                    const songMatch = album.songs.some(song => 
+                        song.title.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    // Search in artist name
+                    const artistMatch = album.artist.toLowerCase().includes(searchTerm);
+                    
+                    // Search in collaborators
+                    const collaboratorMatch = album.collaborators.some(collaborator =>
+                        collaborator.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    return titleMatch || songMatch || artistMatch || collaboratorMatch;
+                });
+            } else {
+                filteredAlbums = allAlbums;
+            }
+            
+            // Sort filtered albums based on selection
+            switch(selectedSort) {
+                case 'year-desc':
+                    sortedAlbums = filteredAlbums.sort((a, b) => b.year - a.year);
+                    break;
+                case 'year-asc':
+                    sortedAlbums = filteredAlbums.sort((a, b) => a.year - b.year);
+                    break;
+                case 'release-desc':
+                    sortedAlbums = filteredAlbums.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+                    break;
+                case 'release-asc':
+                    sortedAlbums = filteredAlbums.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+                    break;
+                default:
+                    sortedAlbums = filteredAlbums.sort((a, b) => b.year - a.year);
+            }
+            
+            displayAlbums();
+        }
+
+        function scrollToAlbums() {
+            const albumsSection = document.querySelector('.albums');
+            if (albumsSection) {
+                albumsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function displayAlbums() {
+            const container = document.getElementById('allAlbumsGrid');
+            
+            if (sortedAlbums.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666;">No albums available.</p>';
+                document.getElementById('paginationContainer').style.display = 'none';
+                return;
+            }
+
+            // Calculate pagination
+            const totalPages = Math.ceil(sortedAlbums.length / albumsPerPage);
+            const startIndex = (currentPage - 1) * albumsPerPage;
+            const endIndex = Math.min(startIndex + albumsPerPage, sortedAlbums.length);
+            const albumsToShow = sortedAlbums.slice(startIndex, endIndex);
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Display albums for current page
+            albumsToShow.forEach((album, index) => {
+                const albumItem = document.createElement('div');
+                albumItem.className = 'album-item';
+                
+                // Create artist display with collaborators (with fallbacks)
+                const artist = album.artist || 'Techung';
+                const collaborators = album.collaborators || [];
+                const artistDisplay = collaborators.length > 0 
+                    ? `${artist} feat. ${collaborators.join(', ')}`
+                    : artist;
+
+                // Create songs list with hover functionality
+                const songsList = album.songs.map(song => 
+                    `<div class="song-row" data-url="${song.youtubeUrl}">
+                        <div class="song-info">
+                            <span class="play-icon">▶</span>
+                            <span class="song-title">${song.title}</span>
+                        </div>
+                        <span class="song-duration">${song.duration}</span>
+                        <a href="${song.youtubeUrl}" target="_blank" class="listen-now-btn">Listen Now</a>
+                    </div>`
+                ).join('');
+
+                albumItem.innerHTML = `
+                    <div class="album-cover-left">
+                        <a href="album-details.html?id=${album.id}">
+                            <div class="album-image" style="background-image: url('${album.coverImage}')">
+                                <span style="display: ${album.coverImage ? 'none' : 'block'}">Album Cover</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="album-info-right">
+                        <div class="album-header">
+                            <h3 class="album-title">
+                                <a href="album-details.html?id=${album.id}">${album.title}</a>
+                            </h3>
+                            <p class="album-artist">${artistDisplay}</p>
+                            <p class="album-year">${album.year}</p>
+                        </div>
+                        <div class="songs-list">
+                            ${songsList}
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(albumItem);
+            });
+            
+            // Add hover functionality for songs
+            document.querySelectorAll('.song-row').forEach(row => {
+                const listenBtn = row.querySelector('.listen-now-btn');
+                
+                row.addEventListener('mouseenter', () => {
+                    listenBtn.style.opacity = '1';
+                    listenBtn.style.visibility = 'visible';
+                });
+                
+                row.addEventListener('mouseleave', () => {
+                    listenBtn.style.opacity = '0';
+                    listenBtn.style.visibility = 'hidden';
+                });
+            });
+
+            // Update pagination UI
+            updatePaginationUI(totalPages, startIndex + 1, endIndex);
+        }
+
+        function updatePaginationUI(totalPages, startItem, endItem) {
+            const paginationContainer = document.getElementById('paginationContainer');
+            const paginationInfo = document.getElementById('paginationInfo');
+            const paginationNumbers = document.getElementById('paginationNumbers');
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+
+            // Show/hide pagination based on whether it's needed
+            if (totalPages <= 1) {
+                paginationContainer.style.display = 'none';
+                return;
+            } else {
+                paginationContainer.style.display = 'block';
+            }
+
+            // Update info text
+            paginationInfo.textContent = `Showing ${startItem}-${endItem} of ${sortedAlbums.length} albums`;
+
+            // Update prev/next buttons
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+
+            // Generate page numbers
+            paginationNumbers.innerHTML = '';
+            
+            // Show max 5 page numbers with current page in center when possible
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+            
+            // Adjust start if we're near the end
+            if (endPage - startPage < 4) {
+                startPage = Math.max(1, endPage - 4);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `pagination-number ${i === currentPage ? 'active' : ''}`;
+                pageBtn.textContent = i;
+                pageBtn.addEventListener('click', function() {
+                    currentPage = i;
+                    displayAlbums();
+                    scrollToAlbums();
+                });
+                paginationNumbers.appendChild(pageBtn);
+            }
+        }
+    </script>
+</body>
+</html>
