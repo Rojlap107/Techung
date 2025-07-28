@@ -237,24 +237,6 @@ const albums = [
     },
     {
         id: 4,
-        title: "Winds of Peace",
-        artist: "Techung",
-        collaborators: [],
-        year: 2008,
-        description: "Peaceful and meditative compositions reflecting Tibetan spiritual traditions and the longing for peace.",
-        coverImage: "img/album covers/placeholder.jpg",
-        releaseDate: "2008-11-05",
-        songs: [
-            {
-                title: "Winds of Peace",
-                duration: "7:22",
-                youtubeUrl: "https://youtube.com/watch?v=example4",
-                lyrics: ""
-            }
-        ]
-    },
-    {
-        id: 5,
         title: "Golden Flower",
         artist: "Techung",
         collaborators: [],
@@ -272,7 +254,7 @@ const albums = [
         ]
     },
     {
-        id: 6,
+        id: 5,
         title: "Songs from Tibet",
         artist: "Techung",
         collaborators: [],
@@ -368,7 +350,7 @@ const albums = [
         ]
     },
     {
-        id: 7,
+        id: 6,
         title: "A Compilation of Tibetan Folk and Freedom Songs",
         artist: "Techung",
         collaborators: [],
@@ -470,7 +452,7 @@ const albums = [
         ]
     },
     {
-        id: 8,
+        id: 7,
         title: "Nyingtop-Courage",
         artist: "Techung",
         collaborators: [],
@@ -488,7 +470,7 @@ const albums = [
         ]
     },
     {
-        id: 9,
+        id: 8,
         title: "Sky Treasure",
         artist: "Techung",
         collaborators: ["Kit Walker"],
@@ -554,7 +536,7 @@ const albums = [
         ]
     },
     {
-        id: 10,
+        id: 9,
         title: "Yarlung Tibetan Songs of Love and Freedom",
         artist: "Techung",
         collaborators: ["Miguel Frasconi"],
@@ -638,7 +620,7 @@ const albums = [
         ]
     },
     {
-        id: 11,
+        id: 10,
         title: "Changshae-Traditional Tibetan Wine Songs",
         artist: "Techung",
         collaborators: [],
@@ -752,7 +734,7 @@ const albums = [
         ]
     },
     {
-        id: 12,
+        id: 11,
         title: "Repa-Songs and Dances",
         artist: "Techung",
         collaborators: [],
@@ -842,7 +824,7 @@ const albums = [
         ]
     },
     {
-        id: 13,
+        id: 12,
         title: "Semshae-Heart Songs",
         artist: "Techung",
         collaborators: [],
@@ -950,7 +932,7 @@ const albums = [
         ]
     },
     {
-        id: 14,
+        id: 13,
         title: "Albums with Chaksampa: Pha Yul - Native Land",
         artist: "Techung",
         collaborators: ["Chaksampa"],
@@ -968,7 +950,7 @@ const albums = [
         ]
     },
     {
-        id: 15,
+        id: 14,
         title: "Renewal: Contemporary Tibetan Folk Songs",
         artist: "Techung",
         collaborators: [],
@@ -986,7 +968,7 @@ const albums = [
         ]
     },
     {
-        id: 16,
+        id: 15,
         title: "Rainbow Tibet: Contemporary Tibetan Music",
         artist: "Techung",
         collaborators: [],
@@ -1004,7 +986,7 @@ const albums = [
         ]
     },
     {
-        id: 17,
+        id: 16,
         title: "Music of the Sacred Temples",
         artist: "Techung",
         collaborators: [],
