@@ -39,8 +39,6 @@
             <div class="container">
                 <div class="album-filters">
                     <select id="sortFilter">
-                        <option value="year-desc">Year (Newest First)</option>
-                        <option value="year-asc">Year (Oldest First)</option>
                         <option value="release-desc">Release Date (Newest First)</option>
                         <option value="release-asc">Release Date (Oldest First)</option>
                     </select>
@@ -396,12 +394,6 @@
             
             // Sort filtered albums based on selection
             switch(selectedSort) {
-                case 'year-desc':
-                    sortedAlbums = filteredAlbums.sort((a, b) => b.year - a.year);
-                    break;
-                case 'year-asc':
-                    sortedAlbums = filteredAlbums.sort((a, b) => a.year - b.year);
-                    break;
                 case 'release-desc':
                     sortedAlbums = filteredAlbums.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
                     break;
@@ -409,7 +401,7 @@
                     sortedAlbums = filteredAlbums.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
                     break;
                 default:
-                    sortedAlbums = filteredAlbums.sort((a, b) => b.year - a.year);
+                    sortedAlbums = filteredAlbums.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
             }
             
             displayAlbums();
