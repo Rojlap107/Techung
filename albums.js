@@ -987,24 +987,6 @@ const albums = [
     },
     {
         id: 16,
-        title: "Ajo Sotop - Tibetan Freedom Concert",
-        artist: "Techung",
-        collaborators: [],
-        year: 1997,
-        description: "Produced by Capital Records for the Tibetan Freedom Concert, this album features Techung's contribution to the historic concert supporting Tibetan freedom.",
-        coverImage: "img/album covers/placeholder.jpg",
-        releaseDate: "1997-07-15",
-        songs: [
-            {
-                title: "Ajo Sotop",
-                duration: "3:50",
-                youtubeUrl: "https://youtube.com/watch?v=example30",
-                lyrics: ""
-            }
-        ]
-    },
-    {
-        id: 17,
         title: "Rainbow Tibet: Contemporary Tibetan Music",
         artist: "Techung",
         collaborators: [],
@@ -1022,25 +1004,7 @@ const albums = [
         ]
     },
     {
-        id: 18,
-        title: "An Introduction to Tibetan Music",
-        artist: "Techung",
-        collaborators: ["Tibetan Dance Company"],
-        year: 1989,
-        description: "An educational album created with the Tibetan Dance Company, serving as an introduction to traditional Tibetan music and its cultural context.",
-        coverImage: "img/album covers/placeholder.jpg",
-        releaseDate: "1989-06-30",
-        songs: [
-            {
-                title: "Introduction to Tibetan Music",
-                duration: "6:00",
-                youtubeUrl: "https://youtube.com/watch?v=example32",
-                lyrics: ""
-            }
-        ]
-    },
-    {
-        id: 19,
+        id: 17,
         title: "Music of the Sacred Temples",
         artist: "Techung",
         collaborators: [],
@@ -1101,24 +1065,6 @@ const albums = [
                 title: "Kham Lu (A Song to the Mountains)",
                 duration: "3:48",
                 youtubeUrl: "https://open.spotify.com/album/14upMQNpdXp6Xan022r1zg",
-                lyrics: ""
-            }
-        ]
-    },
-    {
-        id: 20,
-        title: "Various Recordings with the Tibetan Institute of Performing Arts",
-        artist: "Techung",
-        collaborators: ["Tibetan Institute of Performing Arts"],
-        year: 1987,
-        description: "A collection of various recordings made with the Tibetan Institute of Performing Arts between 1975-1987, documenting traditional Tibetan performing arts.",
-        coverImage: "img/album covers/placeholder.jpg",
-        releaseDate: "1987-12-15",
-        songs: [
-            {
-                title: "TIPA Recordings",
-                duration: "5:30",
-                youtubeUrl: "https://youtube.com/watch?v=example33",
                 lyrics: ""
             }
         ]
