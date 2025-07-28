@@ -319,7 +319,6 @@
                 if (currentPage > 1) {
                     currentPage--;
                     displayAlbums();
-                    scrollToAlbums();
                 }
             });
 
@@ -328,7 +327,6 @@
                 if (currentPage < totalPages) {
                     currentPage++;
                     displayAlbums();
-                    scrollToAlbums();
                 }
             });
         });
@@ -384,12 +382,6 @@
             displayAlbums();
         }
 
-        function scrollToAlbums() {
-            const albumsSection = document.querySelector('.albums');
-            if (albumsSection) {
-                albumsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
 
         function displayAlbums() {
             const container = document.getElementById('allAlbumsGrid');
@@ -518,7 +510,6 @@
                 pageBtn.addEventListener('click', function() {
                     currentPage = i;
                     displayAlbums();
-                    scrollToAlbums();
                 });
                 paginationNumbers.appendChild(pageBtn);
             }
