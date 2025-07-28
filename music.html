@@ -50,6 +50,19 @@
                     </div>
                 </div>
 
+                <div class="pagination-container" id="topPaginationContainer">
+                    <div class="pagination-info">
+                        <span id="topPaginationInfo">Showing 1-5 of 16 albums</span>
+                    </div>
+                    <div class="pagination-controls">
+                        <button id="topPrevPage" class="pagination-btn" disabled>‹ Previous</button>
+                        <div class="pagination-numbers" id="topPaginationNumbers">
+                            <!-- Page numbers will be generated dynamically -->
+                        </div>
+                        <button id="topNextPage" class="pagination-btn">Next ›</button>
+                    </div>
+                </div>
+
                 <div class="albums-grid" id="allAlbumsGrid">
                     <!-- Albums will be loaded dynamically -->
                 </div>
@@ -319,6 +332,7 @@
                 if (currentPage > 1) {
                     currentPage--;
                     displayAlbums();
+                    scrollToTop();
                 }
             });
 
@@ -327,6 +341,25 @@
                 if (currentPage < totalPages) {
                     currentPage++;
                     displayAlbums();
+                    scrollToTop();
+                }
+            });
+
+            // Add event listeners for top pagination
+            document.getElementById('topPrevPage').addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayAlbums();
+                    scrollToTop();
+                }
+            });
+
+            document.getElementById('topNextPage').addEventListener('click', function() {
+                const totalPages = Math.ceil(sortedAlbums.length / albumsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayAlbums();
+                    scrollToTop();
                 }
             });
         });
@@ -382,6 +415,12 @@
             displayAlbums();
         }
 
+        function scrollToTop() {
+            const albumsSection = document.querySelector('.albums');
+            if (albumsSection) {
+                albumsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
 
         function displayAlbums() {
             const container = document.getElementById('allAlbumsGrid');
@@ -389,6 +428,7 @@
             if (sortedAlbums.length === 0) {
                 container.innerHTML = '<p style="text-align: center; color: #666;">No albums available.</p>';
                 document.getElementById('paginationContainer').style.display = 'none';
+                document.getElementById('topPaginationContainer').style.display = 'none';
                 return;
             }
 
@@ -470,11 +510,17 @@
         }
 
         function updatePaginationUI(totalPages, startItem, endItem) {
-            const paginationContainer = document.getElementById('paginationContainer');
-            const paginationInfo = document.getElementById('paginationInfo');
-            const paginationNumbers = document.getElementById('paginationNumbers');
-            const prevBtn = document.getElementById('prevPage');
-            const nextBtn = document.getElementById('nextPage');
+            // Update both pagination instances
+            updateSinglePagination('paginationContainer', 'paginationInfo', 'paginationNumbers', 'prevPage', 'nextPage', totalPages, startItem, endItem);
+            updateSinglePagination('topPaginationContainer', 'topPaginationInfo', 'topPaginationNumbers', 'topPrevPage', 'topNextPage', totalPages, startItem, endItem);
+        }
+
+        function updateSinglePagination(containerId, infoId, numbersId, prevId, nextId, totalPages, startItem, endItem) {
+            const paginationContainer = document.getElementById(containerId);
+            const paginationInfo = document.getElementById(infoId);
+            const paginationNumbers = document.getElementById(numbersId);
+            const prevBtn = document.getElementById(prevId);
+            const nextBtn = document.getElementById(nextId);
 
             // Show/hide pagination based on whether it's needed
             if (totalPages <= 1) {
@@ -510,6 +556,7 @@
                 pageBtn.addEventListener('click', function() {
                     currentPage = i;
                     displayAlbums();
+                    scrollToTop();
                 });
                 paginationNumbers.appendChild(pageBtn);
             }
