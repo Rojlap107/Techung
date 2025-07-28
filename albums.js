@@ -1050,6 +1050,24 @@ const albums = [
                 lyrics: ""
             }
         ]
+    },
+    {
+        id: 17,
+        title: "Lingshang: The Bell - Single",
+        artist: "Techung",
+        collaborators: [],
+        year: 2015,
+        description: "A single release featuring traditional Tibetan bell music composed by Tashi Dhondup Sharzur. Released by Tashi D Sharzur label, this track showcases the meditative and spiritual qualities of Tibetan ceremonial music.",
+        coverImage: "img/album covers/Lingshang- The Bell - Single.jpeg",
+        releaseDate: "2015-05-30",
+        songs: [
+            {
+                title: "Lingshang: The Bell",
+                duration: "4:00",
+                youtubeUrl: "https://music.apple.com/us/album/lingshang-the-bell-single/1066101240",
+                lyrics: ""
+            }
+        ]
     }
 ];
 
