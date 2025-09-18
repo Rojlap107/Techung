@@ -1,0 +1,7 @@
+The website will be for a musician
+The website will have homepage, about, page, tour, music, contact.
+The design of the website homepage will based on https://techung.my.canva.site/
+The logo logo-eng.png is in folder 'img'
+The position of the header will be based on https://techung.my.canva.site/ at the top where the logo is at the centre
+The font used will be 'The Seasons' as main
+The other details will be provided as and when we move forward

@@ -453,24 +453,6 @@ const albums = [
     },
     {
         id: 7,
-        title: "Nyingtop-Courage",
-        artist: "Techung",
-        collaborators: [],
-        year: 2002,
-        description: "An album celebrating courage and resilience in the face of adversity, reflecting the Tibetan spirit of perseverance.",
-        coverImage: "img/album covers/placeholder.jpg",
-        releaseDate: "2002-05-10",
-        songs: [
-            {
-                title: "Nyingtop-Courage",
-                duration: "6:10",
-                youtubeUrl: "https://youtube.com/watch?v=example10",
-                lyrics: ""
-            }
-        ]
-    },
-    {
-        id: 8,
         title: "Sky Treasure",
         artist: "Techung",
         collaborators: ["Kit Walker"],
@@ -536,7 +518,7 @@ const albums = [
         ]
     },
     {
-        id: 9,
+        id: 8,
         title: "Yarlung Tibetan Songs of Love and Freedom",
         artist: "Techung",
         collaborators: ["Miguel Frasconi"],
@@ -620,7 +602,7 @@ const albums = [
         ]
     },
     {
-        id: 10,
+        id: 9,
         title: "Changshae-Traditional Tibetan Wine Songs",
         artist: "Techung",
         collaborators: [],
@@ -734,7 +716,7 @@ const albums = [
         ]
     },
     {
-        id: 11,
+        id: 10,
         title: "Repa-Songs and Dances",
         artist: "Techung",
         collaborators: [],
@@ -824,7 +806,7 @@ const albums = [
         ]
     },
     {
-        id: 12,
+        id: 11,
         title: "Semshae-Heart Songs",
         artist: "Techung",
         collaborators: [],
@@ -932,25 +914,7 @@ const albums = [
         ]
     },
     {
-        id: 13,
-        title: "Albums with Chaksampa: Pha Yul - Native Land",
-        artist: "Techung",
-        collaborators: ["Chaksampa"],
-        year: 2002,
-        description: "A collaborative work with Chaksampa focusing on songs about the native land and homeland, expressing deep connection to Tibet.",
-        coverImage: "img/album covers/placeholder.jpg",
-        releaseDate: "2002-09-10",
-        songs: [
-            {
-                title: "Pha Yul - Native Land",
-                duration: "5:20",
-                youtubeUrl: "https://youtube.com/watch?v=example28",
-                lyrics: ""
-            }
-        ]
-    },
-    {
-        id: 14,
+        id: 12,
         title: "Renewal: Contemporary Tibetan Folk Songs",
         artist: "Techung",
         collaborators: [],
@@ -968,7 +932,7 @@ const albums = [
         ]
     },
     {
-        id: 15,
+        id: 13,
         title: "Rainbow Tibet: Contemporary Tibetan Music",
         artist: "Techung",
         collaborators: [],
@@ -986,7 +950,7 @@ const albums = [
         ]
     },
     {
-        id: 16,
+        id: 14,
         title: "Music of the Sacred Temples",
         artist: "Techung",
         collaborators: [],
@@ -1052,7 +1016,7 @@ const albums = [
         ]
     },
     {
-        id: 17,
+        id: 15,
         title: "Lingshang: The Bell - Single",
         artist: "Techung",
         collaborators: [],
