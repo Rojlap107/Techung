@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Techung</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -25,8 +29,27 @@
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-menu">
+            <ul>
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="epk.html">EPK</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
     <main class="page-main">
         <section class="about-hero">
@@ -35,142 +58,168 @@
             </div>
         </section>
 
-        <!-- Introduction Section -->
-        <section class="about-intro">
+        <!-- Language Toggle -->
+        <section class="language-toggle-section">
             <div class="container">
-                <div class="intro-content">
-                    <div class="intro-text">
-                        <h2>About Techung</h2>
-                        <p>Techung is a prominent Tibetan singer/songwriter living in exile in the Adirondacks, New York. He is best known for his performances of traditional Tibetan music, dance and opera under the name Tashi Dhondup Sharzur. However, he uses his childhood nickname, Techung, when performing as a solo artist. Whether performing in traditional or contemporary styles, his dual goals are to revive Tibetan music in the Tibetan community and to expose the rich performing cultural tradition of his homeland to the world community.</p>
+                <div class="language-toggle">
+                    <button class="lang-btn active" data-lang="eng">Eng</button>
+                    <button class="lang-btn" data-lang="tib">བོད།</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Content Section -->
+        <section class="about-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <!-- English Content -->
+                    <div class="lang-content" id="eng-content">
+                        <div class="text-content">
+                            <h2>About Techung</h2>
+                            <div id="eng-text"></div>
+                            <div class="gallery-section">
+                                <h3>Gallery</h3>
+                                <div class="external">
+                                    <div class="horizontal-scroll-wrapper">
+                                        <div class="img-wrapper slower">
+                                            <a href="#">
+                                                <img src="img/Gallery/Jim Block photo 1.jpg" alt="Techung - Portrait by Jim Block">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper faster">
+                                            <a href="#">
+                                                <img src="img/Gallery/Jim Blocks photo brocate dress.jpg" alt="Techung in Traditional Brocade Dress">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper slower vertical">
+                                            <a href="#">
+                                                <img src="img/Gallery/Judy Detor photo.jpeg" alt="Techung Photo by Judy Detor">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper slower slower-down">
+                                            <a href="#">
+                                                <img src="img/Gallery/Techung in Snow.jpg" alt="Techung in Snow Setting">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper">
+                                            <a href="#">
+                                                <img src="img/Gallery/Techung Portrait.JPG" alt="Techung Portrait">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper slower">
+                                            <a href="#">
+                                                <img src="img/Gallery/Techung.jpg" alt="Techung Performance">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper faster1 last">
+                                            <a href="#">
+                                                <img src="img/Gallery/Tenchung Singing to HHDL.jpg" alt="Techung Singing to His Holiness the Dalai Lama">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="intro-image">
-                        <img src="img/Techung for Web/Jim Block photo 1.jpg" alt="Techung - Photo by Jim Block">
-                        <p class="photo-credit">Photo by Jim Block</p>
+
+                    <!-- Tibetan Content -->
+                    <div class="lang-content hidden" id="tib-content">
+                        <div class="text-content">
+                            <h2>བཀྲས་ཆུང་གི་སྐོར།</h2>
+                            <div id="tib-text"></div>
+                            <div class="gallery-section">
+                                <h3>Gallery</h3>
+                                <div class="external">
+                                    <div class="horizontal-scroll-wrapper">
+                                        <div class="img-wrapper slower">
+                                            <a href="#">
+                                                <img src="img/Gallery/Jim Block photo 1.jpg" alt="Techung - Portrait by Jim Block">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper faster">
+                                            <a href="#">
+                                                <img src="img/Gallery/Jim Blocks photo brocate dress.jpg" alt="Techung in Traditional Brocade Dress">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper slower vertical">
+                                            <a href="#">
+                                                <img src="img/Gallery/Judy Detor photo.jpeg" alt="Techung Photo by Judy Detor">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper slower slower-down">
+                                            <a href="#">
+                                                <img src="img/Gallery/Techung in Snow.jpg" alt="Techung in Snow Setting">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper">
+                                            <a href="#">
+                                                <img src="img/Gallery/Techung Portrait.JPG" alt="Techung Portrait">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper slower">
+                                            <a href="#">
+                                                <img src="img/Gallery/Techung.jpg" alt="Techung Performance">
+                                            </a>
+                                        </div>
+
+                                        <div class="img-wrapper faster1 last">
+                                            <a href="#">
+                                                <img src="img/Gallery/Tenchung Singing to HHDL.jpg" alt="Techung Singing to His Holiness the Dalai Lama">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p class="scroll-info">
+                                        <span class="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                                <path d="M50,67.1c-0.6,0-1.2-0.2-1.8-0.7c-3.8-3.8-7.7-7.7-11.5-11.5c-2.3-2.3,1.2-5.8,3.5-3.5c2.5,2.5,4.9,4.9,7.4,7.4      c0-13.7,0-27.4,0-41.2c0-0.6,0.2-1.2,0.5-1.5c0,0,0,0,0,0c0.4-0.6,1.1-1,2-0.9c13.7,0.3,26.4,7.2,33.5,19.1      C96.5,55.9,84.7,85,60.2,91.6C35.5,98.2,11.6,79.1,11.1,54c-0.1-3.2,4.9-3.2,5,0c0.3,13.8,8.4,26.4,21.3,31.5      c12.5,5,27.1,1.9,36.6-7.5c9.5-9.5,12.5-24.1,7.5-36.6c-4.8-12.1-16.3-20.1-29-21.2c0,12.8,0,25.5,0,38.3      c2.5-2.5,4.9-4.9,7.4-7.4c2.3-2.3,5.8,1.3,3.5,3.5c-3.9,3.9-7.8,7.8-11.8,11.8C51.2,66.9,50.6,67.1,50,67.1z"/>
+                                            </svg>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Early Life Section -->
-        <section class="early-life">
-            <div class="container">
-                <div class="life-content">
-                    <div class="life-image">
-                        <div class="image-placeholder">
-                            <span>Young Techung at TIPA</span>
-                        </div>
-                    </div>
-                    <div class="life-text">
-                        <h2>Early Life & Training</h2>
-                        <p>Techung grew up in Dharamsala, India where his family was forced to resettle in India along with tens of thousands of other Tibetans after the Chinese occupation of Tibet in 1949. Because of the limited educational opportunities open to young refugees in the 1970s, he was enrolled at the age of nine in the newly formed Tibetan Institute of Performing Arts (TIPA), despite his family not having an artistic background.</p>
-                        <p>In his seventeen years of residency at the Institute, he studied all aspects of the Tibetan performing arts - folk, court, and religious music traditions - through the oral teaching tradition used by the venerated Tibetan elders with whom he was honored to study. He toured with TIPA in its first international tour as a leading child actor in 1975-76 and for many years afterwards.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Career Highlights Section -->
-        <section class="career-highlights">
-            <div class="container">
-                <div class="career-content">
-                    <div class="career-text">
-                        <h2>Career & Achievements</h2>
-                        <p>After emigrating to the USA, he co-founded the San Francisco-based Chaksampa Tibetan Dance and Opera Company in 1989. Chaksampa made their debut at Carnegie Hall with Philip Glass, REM, Trey Anastasio, Shawn Colvin, and Patti Smith as part of New York Tibet House's annual Monlam festival concert.</p>
-                        <p>Under Tashi Dhondup's leadership as Artistic Director, they have performed all over North America and Europe, at prestigious venues such as the Smithsonian Folklife Festival in Washington, DC and the Asian Art Museum in San Francisco. The group has performed in all four of the Tibetan Freedom Concerts, appearing with artists like U2, John Lee Hooker, Pearl Jam, Herbie Hancock, and The Beastie Boys.</p>
-                    </div>
-                    <div class="career-image">
-                        <div class="image-placeholder">
-                            <span>Chaksampa Performance</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Discography Section -->
-        <section class="discography">
-            <div class="container">
-                <div class="disco-content">
-                    <div class="disco-image">
-                        <div class="image-placeholder">
-                            <span>Album Covers</span>
-                        </div>
-                    </div>
-                    <div class="disco-text">
-                        <h2>Musical Releases</h2>
-                        <p>Techung is respected for the original solo and collaborative music he creates by drawing on both his heritage and familiarity with other world music traditions. He collaborated on his first solo album, "Yarlung: Tibetan Songs of Love and Freedom" (1997) with composer Miguel Frasconi, followed by "Sky Treasure" (2001) with Windham Hill jazz keyboardist Kit Walker.</p>
-                        <p>His song "Losar" was chosen as the 2003 'Best Modern Traditional Tibetan Song' at the first annual Tibetan Music Awards. His recent album "Techung-Tibet-Lam La Che: On The Road" (2013), with Keb Mo and poet Tsering Woeser, received four Best awards at the 2013 Tibetan Music Awards: Best Album, Best Song, Best album cover design and Best Love song.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Film & Media Section -->
-        <section class="media-work">
-            <div class="container">
-                <div class="media-content">
-                    <div class="media-text">
-                        <h2>Film & Media</h2>
-                        <p>Techung's voice and music have been featured in the IMAX film "Everest," the feature film "Windhorse," and documentary films "Stranger in My Native Land," "Tibet's Stolen Child," and "Three Days for Tibet." His music has been used to promote the Milarepa Fund, Students For a Free Tibet's "Tibet Will Be Free" DVD, and Amnesty International.</p>
-                        <p>His music was featured in the documentary "What Remains of Us" selected at the 2004 Cannes film festival, and in the Tibetan feature film "Dreaming Lhasa" directed by Tenzing Sonam and Ritu Sarin.</p>
-                    </div>
-                    <div class="media-image">
-                        <div class="image-placeholder">
-                            <span>Film Stills</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Children's Music Section -->
-        <section class="children-music">
-            <div class="container">
-                <div class="children-content">
-                    <div class="children-image">
-                        <div class="image-placeholder">
-                            <span>Children's Album</span>
-                        </div>
-                    </div>
-                    <div class="children-text">
-                        <h2>Children's Music & Cultural Preservation</h2>
-                        <p>With the goal of reaching Tibetan children, Techung released his first Tibetan children's music album "Semshae – Heart Songs" in 2010. This is the first Tibetan children's music CD and is the result of seven years of research. It was composed especially to encourage Tibetan children in exile to learn the Tibetan language.</p>
-                        <p>The primary goal of the project is to ensure that the Tibetan culture of compassion is preserved through children's music.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recent Achievements Section -->
-        <section class="recent-achievements">
-            <div class="container">
-                <div class="achievements-content">
-                    <div class="achievements-text">
-                        <h2>Recent Recognition</h2>
-                        <p>Since 2004 Techung has performed live opening acts for His Holiness, the Dalai Lama, at public talks in USA, Costa Rica, Japan and New Orleans (2013).</p>
-                        <p>In 2018, Techung was awarded the prestigious New York Foundation for the Arts Fellowship in Folk and Traditional Arts. Currently (2021) he serves as artist advisory committee member for the New York Foundation for the Arts.</p>
-                    </div>
-                    <div class="achievements-image">
-                        <div class="image-placeholder">
-                            <span>With Dalai Lama</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-overlay" id="lightbox-overlay">
+        <div class="lightbox-container">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="">
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" id="lightbox-prev">❮</button>
+                <button class="lightbox-next" id="lightbox-next">❯</button>
+            </div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
             <div class="footer-content">
                 <a href="contact.html" class="get-in-touch-btn">Get in Touch</a>
                 <div class="social-icons">
-                    <a href="#" class="social-icon" aria-label="Instagram">
+                    <a href="https://www.instagram.com/techungtibet" class="social-icon" aria-label="Instagram" target="_blank">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
-                    <a href="#" class="social-icon" aria-label="Facebook">
+                    <a href="https://www.facebook.com/techung" class="social-icon" aria-label="Facebook" target="_blank">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
@@ -181,8 +230,691 @@
         </div>
     </footer>
 
+    <style>
+        .language-toggle-section {
+            background-color: #f8f8f8;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .language-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            max-width: 200px;
+            margin: 0 auto;
+            border: 2px solid #8a0000;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            background: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 60px;
+        }
+
+        .lang-btn:first-child {
+            border-right: 1px solid #8a0000;
+        }
+
+        .lang-btn.active {
+            background-color: #8a0000;
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        .about-content {
+            background-color: white;
+            padding: 0;
+        }
+
+        .lang-content {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .lang-content.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .text-content {
+            padding: 4rem 0;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .text-content h2 {
+            color: #8a0000;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        #tib-content .text-content p {
+            font-size: 1.35rem;
+        }
+
+        .gallery-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .gallery-section h3 {
+            color: #8a0000;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        /* Hide scrollbar */
+        .external ::-webkit-scrollbar {
+            width: 1px;
+            height: 1px;
+        }
+
+        .external ::-webkit-scrollbar-button {
+            width: 1px;
+            height: 1px;
+        }
+
+        .external {
+            overflow: hidden;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .horizontal-scroll-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100vh;
+            transform: rotate(-90deg) translate3d(0,-100vh,0);
+            transform-origin: right top;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 0;
+            height: 100vw;
+            perspective: 1px;
+            transform-style: preserve-3d;
+            padding-bottom: 15rem;
+        }
+
+        .img-wrapper {
+            transform: rotate(90deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40vh;
+            transform-origin: 50% 50%;
+            transform: rotate(90deg) translateZ(.1px) scale(0.9) translateX(0px) translateY(-3vh);
+            transition: 1s;
+        }
+
+        .img-wrapper:hover {
+            min-height: 60vh;
+        }
+
+        .slower {
+            transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(-10vh);
+        }
+
+        .slower1 {
+            transform: rotate(90deg) translateZ(-.25px) scale(1.05) translateX(0%) translateY(8vh);
+        }
+
+        .slower2 {
+            transform: rotate(90deg) translateZ(-.3px) scale(1.3) translateX(0%) translateY(2vh);
+        }
+
+        .slower-down {
+            transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(0%) translateY(16vh);
+        }
+
+        .faster {
+            transform: rotate(90deg) translateZ(.15px) scale(0.8) translateX(0%) translateY(14vh);
+        }
+
+        .faster1 {
+            transform: rotate(90deg) translateZ(.05px) scale(0.8) translateX(0%) translateY(10vh);
+        }
+
+        .fastest {
+            transform: rotate(90deg) translateZ(.22px) scale(0.7) translateX(-10vh) translateY(-15vh);
+        }
+
+        .vertical {
+            transform: rotate(90deg) translateZ(-.15px) scale(1.15) translateX(0%) translateY(0%);
+        }
+
+        .last {
+            transform: rotate(90deg) translateZ(-.2px) scale(1.1) translateX(25vh) translateY(-8vh);
+        }
+
+        .scroll-info {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            align-items: center;
+            color: #8a0000;
+            font-size: 0.9rem;
+        }
+
+        .icon svg {
+            width: 40px;
+            fill: #8a0000;
+            margin-right: 0.5rem;
+        }
+
+        .img-wrapper a {
+            overflow: hidden;
+            display: block;
+            padding: 1vh;
+            background: white;
+            box-shadow: 0 10px 50px rgba(138, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .img-wrapper img {
+            max-width: 35vh;
+            max-height: 40vh;
+            transition: 0.5s;
+            vertical-align: top;
+            filter: saturate(80%) sepia(10%);
+            border-radius: 4px;
+        }
+
+        .img-wrapper a:hover img {
+            filter: none;
+        }
+
+        /* Lightbox Styles */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+        }
+
+        .lightbox-container {
+            position: relative;
+            margin: 2rem;
+            height: calc(100vh - 4rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            color: white;
+            font-size: 3rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 3001;
+            background: none;
+            border: none;
+        }
+
+        .lightbox-close:hover {
+            color: #ccc;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            padding: 0 2rem;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(138, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-nav-menu {
+            text-align: center;
+        }
+
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav-menu li {
+            margin: 2rem 0;
+        }
+
+        .mobile-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav-menu a:hover,
+        .mobile-nav-menu a.active {
+            color: #ccc;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        @media (max-width: 1200px) {
+            .text-content {
+                padding: 2rem 0;
+            }
+
+            .text-content h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-section {
+                margin-top: 2rem;
+            }
+
+            .gallery-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .external {
+                height: 80vh;
+            }
+
+            .horizontal-scroll-wrapper {
+                width: 100vh;
+                transform: rotate(-90deg) translate3d(0,-100vh,0);
+            }
+
+            .img-wrapper {
+                min-height: 25vh;
+            }
+
+            .img-wrapper:hover {
+                min-height: 35vh;
+            }
+
+            .img-wrapper img {
+                max-width: 25vh;
+                max-height: 30vh;
+            }
+
+            .scroll-info {
+                font-size: 0.8rem;
+            }
+
+            .icon svg {
+                width: 30px;
+            }
+
+            .lightbox-close {
+                top: -40px;
+                font-size: 2.5rem;
+            }
+
+            .lightbox-prev,
+            .lightbox-next {
+                font-size: 1.5rem;
+                padding: 0.8rem 1rem;
+            }
+
+            .lightbox-nav {
+                padding: 0 1rem;
+            }
+
+            .lightbox-counter {
+                bottom: -40px;
+                font-size: 1rem;
+            }
+
+            .language-toggle {
+                max-width: 150px;
+            }
+
+            .lang-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            header {
+                padding: 2rem 0;
+            }
+
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 20px;
+            }
+
+            .logo {
+                position: static;
+                transform: none;
+                order: 1;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .nav-left,
+            .nav-right {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                order: 2;
+            }
+        }
+    </style>
+
     <script>
-        // Header remains fixed - no hide/show functionality needed
+        // Language toggle functionality
+        const engContent = {
+            text: `Techung is a prominent Tibetan singer/songwriter living in exile in the Adirondacks, New York. He is best known for his performances of traditional Tibetan music, dance and opera under the name Tashi Dhondup Sharzur. However, he uses his childhood nickname, Techung, when performing as a solo artist. Whether performing in traditional or contemporary styles, his dual goals are to revive Tibetan music in the Tibetan community and to expose the rich performing cultural tradition of his homeland to the world community.
+
+Techung grew up in Dharamsala, India where his family was forced to resettle in India along with tens of thousands of other Tibetans after the Chinese occupation of Tibet in 1949. Because of the limited educational opportunities open to young refugees in the 1970s, he was enrolled at the age of nine in the newly formed Tibetan Institute of Performing Arts (TIPA), despite his family not having an artistic background. In his seventeen years of residency at the Institute, he studied all aspects of the Tibetan performing arts - folk, court, and religious music traditions - through the oral teaching tradition used by the venerated Tibetan elders with whom he was honored to study. He toured with TIPA in its first international tour as a leading child actor in 1975-76 and for many years afterwards.
+
+After emigrating to the USA, he co-founded the San Francisco-based Chaksampa Tibetan Dance and Opera Company in 1989. Chaksampa made their debut at Carnegie Hall with Philip Glass, REM, Trey Anastasio, Shawn Colvin, and Patti Smith as part of New York Tibet House's annual Monlam festival concert. Under Tashi Dhondup's leadership as Artistic Director, they have performed all over North America and Europe, often by invitation, at prestigious venues such as the Smithsonian Folklife Festival in Washington, DC and the Asian Art Museum in San Francisco. The group has performed in all four of the Tibetan Freedom Concerts organized by the Milarepa Fund, appearing with such artists as U2, John Lee Hooker, Taj Mahal, Buddy Guy, Pearl Jam, Herbie Hancock, Tracy Chapman, The Beastie Boys and others. Techung also held the position of Education Coordinator and Tibetan Community Laison for the Milarepa Fund. One of Chaksampa's songs is included in the "Tibetan Freedom Concert" CD on Grand Royal and Capitol Records.
+
+In addition to being looked up to as one of the keepers of traditional Tibetan musical traditions, Techung is also respected for the original solo and collaborative music he creates by drawing on both his own heritage and his familiarity with other world music traditions. He collaborated on his first solo album, "Yarlung: Tibetan Songs of Love and Freedom" (1997) with composer/performer Miguel Frasconi, followed by "Sky Treasure" (2001) with Windham Hill jazz keyboardist Kit Walker. His song "Losar" (Yarlung) was chosen as the 2003 'Best Modern Traditional Tibetan Song' at the first annual Tibetan Music Awards held in Dharamsala. His recent album Techung-Tibet-Lam La Che: On The Road (2013), with Keb Mo and poet Tsering Woeser, received four Best awards at the 2013 Tibetan Music Awards: Best Album, Best Song, Best album cover design and Best Love song.
+
+Techung's voice and music have been featured in the IMAX film "Everest," the feature film "Windhorse," the documentary films "Stranger in My Native Land," "Tibet's Stolen Child," and "Three Days for Tibet" (about a concert in Dharamsala with Joan Osborne, Zakir Hussein and other musicians). His music has also been used to promote the Milarepa Fund (promoting the 1999 Tibetan Freedom Concert), Students For a Free Tibet's "Tibet Will Be Free" DVD, and Amnesty International (soliciting support for the human rights case of the Venerable Palden Gyatso), as well as on an audio book by Diki Tsering titled "Dalai Lama, My Son." His music is currently being used in the documentary film "What Remains of Us" which was selected at the 2004 Cannes film festival. His music will also be used in the upcoming Tibetan feature film "Dreaming Lhasa" directed by Tenzing Sonam and Ritu Sarin. More recent film collaborations in the Discography.
+
+With the goal of reaching Tibetan children, Techung released his first Tibetan children's music album Semshae – Heart Songs, in 2010. This is the first Tibetan children's music CD and is the result of seven years of research. It was composed especially to encourage Tibetan children in exile to learn the Tibetan language. The primary goal of the project is to ensure that the Tibetan culture of compassion is preserved through children's music.
+
+Since 2004 Techung has performed live opening acts for His Holiness, the Dalai Lama, at public talks in USA, Costa Rica and Japan and in New Orleans (2013)
+
+Most recently, in 2018, Techung was awarded the prestigious New York Foundation for the Arts Fellowship in Folk and Traditional Arts.
+
+Currently (2021) He serves as artist advisory committee member for the New York Foundation for the Arts.`
+        };
+
+        const tibContent = {
+            text: `བཀྲས་ཆུང་ལགས་ནི་བོད་ཀྱི་སྲོལ་རྒྱུན་དང་དེང་རབས་ཀྱི་གཞས་པ་ཞིག་ཡིན་ལ། ཁོང་ནི་༢༠༡༨ལོར་ཨ་རིའི་ཉེའུ་ཡོག་སྒྱུ་རྩལ་ཐེབས་རྩ་ཁང་ (New York Foundation for Arts,NYFA)གིས་སྲོལ་རྒྱུན་དང་དམངས་ཁྲོད་སྒྱུ་རྩལ་པའི་ཆེ་མཐོང་ཐོབ་མཁན་ཞིག་རེད།
+
+ཁོང་གིས་ད་ལྟའི་བར་རོལ་དབྱངས་ཀྱི་ལམ་ནས་བོད་ཀྱི་རིག་གཞུང་སྲུང་སྐྱོབ་དང་དར་སྤེལ་གྱི་བྱེད་སྒོ་སྣ་ཚོགས་སྤེལ་ཡོད་ལ། དེ་ནི་གཙོ་བོ་ཁོང་གིས་དེ་སྔ་བཙན་བྱོལ་བོད་ཀྱི་ཟློས་གར་ཁང་དུ་༡༩༦༩ལོ་ནས་༡༩༨༦ལོའི་བར་རྒན་རབས་དགེ་རྒན་དམ་པ་རྣམས་ཀྱི་དྲུང་ནས་སྲོལ་རྒྱུན་རོལ་དབྱངས་དང་ལྷ་མོ་སོགས་སློབ་ཁྲིད་མཐར་ཕྱིན་ཞུས་པའི་གྲུབ་འབྲས་ཡིན། ཁོང་གིས་རོལ་དབྱངས་ཀྱི་ལམ་ནས་བོད་ཀྱི་སྲོལ་བཟང་དང་བཙན་བྱོལ་བོད་མིའི་གནས་བབ། རང་དབང་གི་མངོན་འདོད་རྣམས་ཕྱི་གླིང་བ་རྣམས་ལ་ངོ་སྤྲོད་དང་གདུང་སེམས་མཉམ་སྐྱེད་ཞུས་ཐུབ་ཡོད། དེ་མིན་ཁོང་གིས་སྲོལ་རྒྱུན་རོལ་དབྱངས་གཅིག་པུ་ཙམ་མིན་པར་ཕྱི་གླིང་གི་དེང་རབས་རོལ་མོ་བ་རྣམས་དང་ལྷན་དུ་མཉམ་ལས་ཀྱང་གནང་ཡོད་ལ། ད་བར་སྲོལ་རྒྱུན་དང་དེང་རབས་རོལ་མོ་མཉམ་འབྲེལ་ཐོག་འོད་སྡེར་གྲགས་ཅན་བཅུ་ལྷག་འདོན་སྤེལ་གནང་ཡོད།
+
+ཁོང་ཨ་རིར་གནས་སྤོས་རྗེས་ལྕགས་ཟམ་པ་བོད་ཀྱི་ལྷ་མོ་གླུ་གར་ཚོགས་པ་གསར་འཛུགས་དང་དེའི་འགན་འཛིན་མི་ལོ་ཉི་ཤུ་ལྷག་ཞུས། ཚོགས་པ་དེས་ཨ་རི་དང་ཡོ་རོབ་སོགས་རྒྱལ་ཁག་མང་པོའི་ནང་བོད་ཀྱི་རིག་གཞུང་འཁྲབ་སྟོན་ཞུས་ནས་འཕྲིན་སྦྱོར་བརྒྱུད་ལམ་ཁག་ནང་དགའ་བསུ་ཆེན་པོ་ཐོབ་ཡོད། ཁོང་མི་སྒེར་རོལ་མོ་པའི་ལམ་ནས་ཨ་རིའི་རོལ་མོ་པ་གྲགས་ཅན་ཧྥི་ལིབ་གྷི་ལ་སི་(Philip Glass)དང་ཕཱ་ཊི་སྨིསི་(Patti Smith)བཅས་དང་ལྷན་ཅིག་ནིའུ་ཡོག་ཁར་ནེ་གྷི་རོལ་དབྱངས་ཚོམས་ཆེན་དུ་(Carnegie Hall)རོལ་དབྱངས་ཀྱི་ལམ་ནས་བོད་ཀྱི་རིག་གཞུང་དར་སྤེལ་ཞུས་ཡོད།
+
+༢༠༡༠ ལོར་ཁོང་གིས་བོད་ཀྱི་བྱིས་པ་རྣམས་ཀྱི་ཆེད་དུ་རོལ་དབྱངས་ཟེར་སྡེར་༼སེམས་གཞས༽ཞེས་པ་སྒྲ་འཇུག་དང་འགྲེམ་སྤེལ་ཞུས་ཡོད་ལ། ལས་འགུལ་དེའི་དམིགས་ཡུལ་གཙོ་བོ་ནི་བོད་ཕྱི་ནང་གཉིས་སུ་བོད་ཕྲུག་ཚོས་རོལ་དབྱངས་ཀྱི་ལམ་ནས་བོད་སྐད་སྦྱོང་བརྡར་བྱ་བའི་ཆེད་དུ་ཡིན། ༼སེམས་གཞས༽དཔེ་མཚོན་འདིར་གསན་ཐུབ།
+
+བཀྲས་ཆུང་ལགས་ནས་ལོ་ཤས་རིང་དཀའ་ལས་བརྒྱབ་ནས་བོད་ཀྱི་སྲོལ་རྒྱུན་རོལ་མོ་ནང་མ་དང་སྟོད་གཞས་སྒྲ་འཇུག་ཞུ་ཆེད། ཞལ་འདེབས་འདུ་འགོད་ཞུས་ཏེ་ད་བར་རོལ་དབྱངས་གྲངས་བཅུ་བདུན་ལྷག་སྒྲ་འཇུག་ཞུས་ཟིན་པ་རྣམས་མང་ཚོགས་ཀྱིས་དྲ་ཐོག་ནས་རིན་མེད་ངང་གསན་ཐུབ་པ་དང་། ཞོར་དུ་བོད་ཀྱི་རིག་གཞུང་སྲུང་སྐྱོབ་དང་རྒྱུན་གནས་ཀྱི་ལས་འཆར་འདི་མུ་མཐུད་དེ་གནང་བཞིན་ཡོད་པས། བོད་མི་འབྱོར་ལྡན་རྣམས་ནས་ལས་འཆར་འདིར་དཔལ་འབྱོར་གྱི་མཐུན་འགྱུར་རོགས་རམ་གནང་བའི་རེ་བ་ཞུ་བཞིན་ཡོད། བོད་ཀྱི་སྲོལ་རྒྱུན་རོལ་དབྱངས་གཅེས་སྐྱོང་ལ་ཞལ་འདེབས་གནང་ཚེ་འདིར་ནོན།`
+        };
+
+        function formatText(text) {
+            return text.split('\n').map(paragraph => {
+                if (paragraph.trim()) {
+                    return `<p>${paragraph.trim()}</p>`;
+                }
+                return '';
+            }).join('');
+        }
+
+        function switchLanguage(lang) {
+            const engBtn = document.querySelector('[data-lang="eng"]');
+            const tibBtn = document.querySelector('[data-lang="tib"]');
+            const engContent = document.getElementById('eng-content');
+            const tibContent = document.getElementById('tib-content');
+
+            if (lang === 'eng') {
+                engBtn.classList.add('active');
+                tibBtn.classList.remove('active');
+                engContent.classList.remove('hidden');
+                tibContent.classList.add('hidden');
+            } else {
+                tibBtn.classList.add('active');
+                engBtn.classList.remove('active');
+                tibContent.classList.remove('hidden');
+                engContent.classList.add('hidden');
+            }
+        }
+
+
+        // Gallery images data
+        const galleryImages = [
+            'img/Gallery/Jim Block photo 1.jpg',
+            'img/Gallery/Jim Blocks photo brocate dress.jpg',
+            'img/Gallery/Judy Detor photo.jpeg',
+            'img/Gallery/Techung in Snow.jpg',
+            'img/Gallery/Techung Portrait.JPG',
+            'img/Gallery/Techung.jpg',
+            'img/Gallery/Tenchung Singing to HHDL.jpg'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightboxOverlay = document.getElementById('lightbox-overlay');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+
+            lightboxImage.src = galleryImages[index];
+            lightboxImage.alt = `Techung Gallery Image ${index + 1}`;
+            lightboxCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+
+            lightboxOverlay.style.display = 'flex';
+            setTimeout(() => {
+                lightboxOverlay.classList.add('active');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightboxOverlay = document.getElementById('lightbox-overlay');
+            lightboxOverlay.classList.remove('active');
+            setTimeout(() => {
+                lightboxOverlay.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        function navigateLightbox(direction) {
+            if (direction === 'next') {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            } else {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            }
+
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCounter = document.getElementById('lightbox-counter');
+
+            lightboxImage.src = galleryImages[currentImageIndex];
+            lightboxImage.alt = `Techung Gallery Image ${currentImageIndex + 1}`;
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load text content
+            document.getElementById('eng-text').innerHTML = formatText(engContent.text);
+            document.getElementById('tib-text').innerHTML = formatText(tibContent.text);
+
+            // Add event listeners to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+
+            // Mobile hamburger menu functionality
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    if (mobileOverlay) {
+                        mobileOverlay.style.display = mobileOverlay.style.display === 'flex' ? 'none' : 'flex';
+                    }
+                });
+            }
+
+            // Close mobile menu when clicking on overlay or menu items
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', function(e) {
+                    if (e.target === this || e.target.tagName === 'A') {
+                        this.style.display = 'none';
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            // Gallery lightbox functionality
+            const galleryWrappers = document.querySelectorAll('.img-wrapper');
+            galleryWrappers.forEach((wrapper, index) => {
+                const link = wrapper.querySelector('a');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openLightbox(index);
+                    });
+                }
+            });
+
+            // Lightbox event listeners
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            const lightboxOverlay = document.getElementById('lightbox-overlay');
+
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', closeLightbox);
+            }
+
+            if (lightboxPrev) {
+                lightboxPrev.addEventListener('click', () => navigateLightbox('prev'));
+            }
+
+            if (lightboxNext) {
+                lightboxNext.addEventListener('click', () => navigateLightbox('next'));
+            }
+
+            if (lightboxOverlay) {
+                lightboxOverlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeLightbox();
+                    }
+                });
+            }
+
+            // Keyboard navigation for lightbox
+            document.addEventListener('keydown', function(e) {
+                if (lightboxOverlay && lightboxOverlay.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeLightbox();
+                    } else if (e.key === 'ArrowLeft') {
+                        navigateLightbox('prev');
+                    } else if (e.key === 'ArrowRight') {
+                        navigateLightbox('next');
+                    }
+                }
+            });
+
+        });
     </script>
 </body>
 </html>

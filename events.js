@@ -1,102 +1,30 @@
-// Tour Events Data
+// Tour Events Data (fallback; will be overridden by JSON if available)
 const tourEvents = [
     {
-        date: "2025-01-15",
-        venue: "New York Cultural Center",
-        location: "New York, NY",
+        date: "2026-04-01",
+        venue: "Not Fixed",
+        location: "India",
         time: "8:00 PM",
-        ticketUrl: "#"
+        details: "I am planning a India Tour next year. Once there are more details, I will update here."
     },
-    {
-        date: "2025-02-22",
-        venue: "Tibetan Community Center",
-        location: "San Francisco, CA", 
-        time: "7:30 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-03-10",
-        venue: "World Music Festival",
-        location: "Los Angeles, CA",
-        time: "6:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-04-18",
-        venue: "Carnegie Hall",
-        location: "New York, NY",
-        time: "8:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-05-25",
-        venue: "Buddhist Temple",
-        location: "Seattle, WA",
-        time: "7:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-06-12",
-        venue: "Cultural Arts Center",
-        location: "Chicago, IL",
-        time: "7:30 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-07-30",
-        venue: "Rubin Museum",
-        location: "New York, NY",
-        time: "6:30 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-08-15",
-        venue: "Dharma Center",
-        location: "Boulder, CO",
-        time: "7:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-09-20",
-        venue: "Tibet House",
-        location: "New York, NY",
-        time: "7:30 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-10-08",
-        venue: "Potala Cultural Center",
-        location: "Minneapolis, MN",
-        time: "6:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-11-12",
-        venue: "Himalayan Cultural Festival",
-        location: "Portland, OR",
-        time: "8:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-11-25",
-        venue: "Buddhist Meditation Center",
-        location: "Austin, TX",
-        time: "7:00 PM",
-        ticketUrl: "#"
-    },
-    {
-        date: "2025-12-18",
-        venue: "Winter Solstice Concert",
-        location: "Santa Fe, NM",
-        time: "6:30 PM",
-        ticketUrl: "#"
-    }
 ];
+
+// Prefetch tours JSON to override fallback when available
+let _tourCache = null;
+(function prefetchTours() {
+    try {
+        fetch('data/tours.json?_=' + Date.now())
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(json => { if (Array.isArray(json)) { _tourCache = json; } })
+            .catch(() => {});
+    } catch (e) {}
+})();
 
 // Function to get upcoming events (sorted by date)
 function getUpcomingEvents(limit = null) {
+    const source = (Array.isArray(_tourCache) && _tourCache.length > 0) ? _tourCache : tourEvents;
     const today = new Date();
-    const upcoming = tourEvents
+    const upcoming = source
         .filter(event => new Date(event.date) >= today)
         .sort((a, b) => new Date(a.date) - new Date(b.date));
     

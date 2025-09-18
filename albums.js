@@ -1035,18 +1035,46 @@ const albums = [
     }
 ];
 
+// Prefetch albums JSON to override fallback when available
+let _albumsCache = null;
+(function prefetchAlbums() {
+    try {
+        fetch('data/albums.json?_=' + Date.now())
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(json => { if (Array.isArray(json)) { _albumsCache = json; } })
+            .catch(() => {});
+    } catch (e) {}
+})();
+
+function getMergedAlbums() {
+    // Merge JSON (if present) over fallback by id so partial JSON doesn't wipe all content
+    if (Array.isArray(_albumsCache)) {
+        const byId = new Map(albums.map(a => [a.id, a]));
+        _albumsCache.forEach(a => {
+            if (a && typeof a.id !== 'undefined') {
+                byId.set(a.id, a);
+            }
+        });
+        return Array.from(byId.values());
+    }
+    return albums;
+}
+
 // Function to get latest albums (sorted by release date)
 function getLatestAlbums(limit = null) {
-    const sorted = albums.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+    const src = getMergedAlbums();
+    const sorted = [...src].sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
     return limit ? sorted.slice(0, limit) : sorted;
 }
 
 // Function to get album by ID
 function getAlbumById(id) {
-    return albums.find(album => album.id === id);
+    const src = getMergedAlbums();
+    return src.find(album => album.id === id);
 }
 
 // Function to get all albums
 function getAllAlbums() {
-    return albums.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+    const src = getMergedAlbums();
+    return [...src].sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
 }

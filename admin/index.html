@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { font-family: Spectral, serif; background:#f7f7f7; }
+        .admin-container { max-width: 1100px; margin: 40px auto; background:#fff; padding:24px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);} 
+        h1 { margin: 0 0 16px; }
+        .tabs { display:flex; gap:8px; margin:16px 0 24px; flex-wrap:wrap; }
+        .tab { padding:10px 14px; border:1px solid #ddd; border-radius:8px; background:#fff; cursor:pointer; }
+        .tab.active { background:#333; color:#fff; border-color:#333; }
+        .panel { display:none; }
+        .panel.active { display:block; }
+        .row { display:flex; gap:12px; flex-wrap:wrap; }
+        input[type="text"], input[type="date"], input[type="url"], textarea, input[type="number"] { padding:10px; border:1px solid #ddd; border-radius:6px; min-width:240px; }
+        textarea { width:100%; min-height:120px; }
+        .btn { padding:10px 16px; border-radius:6px; border:1px solid #333; background:#333; color:#fff; cursor:pointer; }
+        .btn.secondary { background:#fff; color:#333; }
+        .list { margin-top:16px; border-top:1px solid #eee; padding-top:16px; }
+        .item { border:1px solid #eee; border-radius:8px; padding:12px; margin:8px 0; background:#fafafa; }
+        .item header { display:flex; justify-content:space-between; align-items:center; }
+        .controls { display:flex; gap:8px; }
+        .muted { color:#777; font-size:0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h1 style="margin:0;">Admin Dashboard</h1>
+            <div id="profile" style="position:relative;">
+                <button id="profileBtn" class="btn secondary" style="min-width:160px;">Profile ▾</button>
+                <div id="profileMenu" style="display:none;position:absolute;right:0;top:42px;background:#fff;border:1px solid #ddd;border-radius:8px;min-width:220px;box-shadow:0 6px 18px rgba(0,0,0,0.12);">
+                    <div style="padding:12px;border-bottom:1px solid #eee;">
+                        <div id="profileName" style="font-weight:700;">Admin</div>
+                        <div id="profileUser" class="muted">admin</div>
+                    </div>
+                    <button id="viewProfile" class="btn secondary" style="width:100%;border:0;border-bottom:1px solid #eee;border-radius:0;">View Profile</button>
+                    <button id="changePassword" class="btn secondary" style="width:100%;border:0;border-bottom:1px solid #eee;border-radius:0;">Change Password</button>
+                    <button id="logoutBtn" class="btn secondary" style="width:100%;border:0;border-radius:0;">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loginPanel" class="panel active">
+            <div class="row">
+                <input id="username" type="text" placeholder="Username" />
+                <input id="password" type="password" placeholder="Password" />
+                <button class="btn" id="loginBtn">Login</button>
+            </div>
+        </div>
+
+        <div id="appPanel" class="panel">
+            <div id="dashboard" class="panel active">
+                <div class="row" style="gap:16px;">
+                    <div class="item" style="flex:1;cursor:pointer;" data-open="#tours">
+                        <header style="display:none;"><strong></strong></header>
+                        <div class="muted">Manage upcoming events</div>
+                    </div>
+                    <div class="item" style="flex:1;cursor:pointer;" data-open="#merch">
+                        <header><strong>Merchandise</strong></header>
+                        <div class="muted">Manage products and pricing</div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div id="tours" class="panel">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <button class="btn secondary" id="backDashTours">← Back to Dashboard</button>
+                        <h2 style="margin:0;">Tours</h2>
+                    </div>
+                    <button class="btn" id="openAddTour">Add</button>
+                </div>
+                <div class="list" style="padding-top:0;border-top:0;">
+                    <table style="width:100%;border-collapse:collapse;">
+                        <thead>
+                            <tr style="text-align:left;border-bottom:1px solid #eee;">
+                                <th style="padding:8px;">Date</th>
+                                <th style="padding:8px;">Venue</th>
+                                <th style="padding:8px;">Location</th>
+                                <th style="padding:8px;">Time</th>
+                                <th style="padding:8px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tourTable"></tbody>
+                    </table>
+                </div>
+                <button class="btn" id="saveTours" style="margin-top:12px;">Save Changes</button>
+            </div>
+
+            <div id="merch" class="panel">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <button class="btn secondary" id="backDashMerch">← Back to Dashboard</button>
+                        <h2 style="margin:0;">Merchandise</h2>
+                    </div>
+                    <button class="btn" id="openAddMerch">Add</button>
+                </div>
+                <div class="list" style="padding-top:0;border-top:0;">
+                    <table style="width:100%;border-collapse:collapse;">
+                        <thead>
+                            <tr style="text-align:left;border-bottom:1px solid #eee;">
+                                <th style="padding:8px;">Title</th>
+                                <th style="padding:8px;">Price</th>
+                                <th style="padding:8px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="merchTable"></tbody>
+                    </table>
+                </div>
+                <button class="btn" id="saveMerch" style="margin-top:12px;">Save Changes</button>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div id="modal" style="display:none;position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;padding:16px;z-index:1000;">
+        <div id="modalCard" style="background:#fff;border-radius:12px;max-width:640px;width:100%;padding:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <h3 id="modalTitle" style="margin:0;">Add</h3>
+                <button id="modalClose" class="btn secondary">✕</button>
+            </div>
+            <div id="modalBody" style="margin-top:12px;"></div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px;">
+                <button id="modalCancel" class="btn secondary">Cancel</button>
+                <button id="modalSave" class="btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        const $ = sel => document.querySelector(sel);
+        const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+        function setActiveTab(btn) {
+            $$('.tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            $$('.panel').forEach(p => p.classList.remove('active'));
+            $('#appPanel').classList.add('panel'); // ensure layout
+            const tgt = document.querySelector(btn.dataset.target);
+            if (tgt) tgt.classList.add('active');
+            $('#appPanel').classList.add('active');
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('[data-open]')) {
+                const sel = e.target.closest('[data-open]').getAttribute('data-open');
+                openSection(sel);
+            }
+        });
+
+        function openSection(selector) {
+            $$('.panel').forEach(p => p.classList.remove('active'));
+            $('#appPanel').classList.add('active');
+            const target = document.querySelector(selector);
+            if (target) target.classList.add('active');
+        }
+
+        // Back buttons
+        document.addEventListener('click', (e) => {
+            if (e.target && (e.target.id === 'backDashTours' || e.target.id === 'backDashMerch' || e.target.id === 'backDashMusic')) {
+                $$('.panel').forEach(p => p.classList.remove('active'));
+                $('#appPanel').classList.add('active');
+                $('#dashboard').classList.add('active');
+            }
+        });
+
+        // Profile dropdown
+        const profileBtn = $('#profileBtn');
+        const profileMenu = $('#profileMenu');
+        profileBtn?.addEventListener('click', () => {
+            profileMenu.style.display = profileMenu.style.display === 'none' || profileMenu.style.display === '' ? 'block' : 'none';
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#profile')) profileMenu.style.display = 'none';
+        });
+
+        // Change Password
+        const changePwdBtn = document.getElementById('changePassword');
+        changePwdBtn?.addEventListener('click', () => {
+            profileMenu.style.display = 'none';
+            const username = (document.getElementById('profileUser')?.textContent || '').trim() || 'admin';
+            openModal('Change Password', `
+                <div class="row">
+                    <input id="cpUser" type="text" value="${username}" disabled />
+                    <input id="cpCurrent" type="password" placeholder="Current password" />
+                    <input id="cpNext" type="password" placeholder="New password" />
+                    <input id="cpConfirm" type="password" placeholder="Confirm new password" />
+                </div>
+            `, async () => {
+                const u = document.getElementById('cpUser').value;
+                const cur = document.getElementById('cpCurrent').value;
+                const next = document.getElementById('cpNext').value;
+                const conf = document.getElementById('cpConfirm').value;
+                if (!cur || !next) { alert('Please fill all fields.'); return; }
+                if (next !== conf) { alert('New passwords do not match.'); return; }
+                const fd = new FormData();
+                fd.append('username', u);
+                fd.append('current', cur);
+                fd.append('next', next);
+                const res = await fetch('../api/change-password.php', { method: 'POST', body: fd });
+                if (!res.ok) {
+                    let msg = 'Failed to change password';
+                    try { const j = await res.json(); if (j && j.error) msg = j.error; } catch {}
+                    alert(msg);
+                } else {
+                    alert('Password changed successfully. Please use the new password next time you log in.');
+                }
+            });
+        });
+
+        // Login
+        $('#loginBtn').addEventListener('click', async () => {
+            const fd = new FormData();
+            fd.append('username', $('#username').value);
+            fd.append('password', $('#password').value);
+            const res = await fetch('../api/login.php', { method: 'POST', body: fd });
+            if (res.ok) {
+                let data = null;
+                try { data = await res.json(); } catch(e) {}
+                const lp = $('#loginPanel');
+                const ap = $('#appPanel');
+                if (lp) { lp.classList.remove('active'); lp.style.display = 'none'; }
+                if (ap) { ap.classList.add('active'); ap.style.display = 'block'; }
+                if (data) {
+                    const pn = $('#profileName');
+                    const pu = $('#profileUser');
+                    if (pn) pn.textContent = data.displayName || 'Admin';
+                    if (pu) pu.textContent = data.username || '';
+                }
+                await loadAllData();
+            } else {
+                alert('Login failed');
+            }
+        });
+
+        // If already logged in (session), auto show dashboard
+        (async function bootstrapSession() {
+            try {
+                const res = await fetch('../api/me.php?_=' + Date.now());
+                if (res.ok) {
+                    const j = await res.json();
+                    if (j && j.loggedIn) {
+                        const lp = $('#loginPanel');
+                        const ap = $('#appPanel');
+                        if (lp) { lp.classList.remove('active'); lp.style.display = 'none'; }
+                        if (ap) { ap.classList.add('active'); ap.style.display = 'block'; }
+                        if (j.displayName) { const pn = $('#profileName'); if (pn) pn.textContent = j.displayName; }
+                        await loadAllData();
+                    }
+                }
+            } catch {}
+        })();
+
+        $('#logoutBtn').addEventListener('click', async () => {
+            await fetch('../api/logout.php');
+            location.reload();
+        });
+
+        // Data stores
+        let tours = [];
+        let merch = [];
+        
+
+        async function loadAllData() {
+            try {
+                const [toursRes, merchRes] = await Promise.all([
+                    fetch('../data/tours.json?_=' + Date.now()),
+                    fetch('../data/merchandise.json?_=' + Date.now()),
+                ]);
+                tours = await toursRes.json();
+                merch = await merchRes.json();
+            } catch {}
+            renderTours();
+            renderMerch();
+        }
+
+        // Tours
+        function renderTours() {
+            const body = $('#tourTable');
+            body.innerHTML = '';
+            (tours || []).forEach((t, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">${t.date || ''}</td>
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">${t.venue || ''}</td>
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">${t.location || ''}</td>
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">${t.time || ''}</td>
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">
+                        <button class="btn secondary" data-view="${idx}">View</button>
+                        <button class="btn secondary" data-edit="${idx}">Edit</button>
+                        <button class="btn secondary" data-del="${idx}">Delete</button>
+                    </td>`;
+                body.appendChild(tr);
+            });
+        }
+
+        function openModal(title, bodyHtml, onSave) {
+            $('#modalTitle').textContent = title;
+            $('#modalBody').innerHTML = bodyHtml;
+            $('#modal').style.display = 'flex';
+            const saveBtn = $('#modalSave');
+            const cleanup = () => {
+                $('#modal').style.display = 'none';
+                saveBtn.replaceWith(saveBtn.cloneNode(true));
+                $('#modalCancel').onclick = null;
+                $('#modalClose').onclick = null;
+            };
+            $('#modalCancel').onclick = cleanup;
+            $('#modalClose').onclick = cleanup;
+            $('#modalSave').onclick = async () => { await onSave(); cleanup(); };
+        }
+
+        $('#openAddTour').addEventListener('click', () => {
+            openModal('Add Tour', `
+                <div class="row">
+                    <input id="mDate" type="date" />
+                    <input id="mVenue" type="text" placeholder="Venue" />
+                    <input id="mLocation" type="text" placeholder="Location" />
+                    <input id="mTime" type="text" placeholder="Time" />
+                    <input id="mUrl" type="url" placeholder="Ticket URL" />
+                </div>
+                <div class="row" style="margin-top:8px;">
+                    <textarea id="mDetails" placeholder="More Details (text and links)"></textarea>
+                </div>
+            `, async () => {
+                tours.push({ date: $('#mDate').value, venue: $('#mVenue').value, location: $('#mLocation').value, time: $('#mTime').value, ticketUrl: $('#mUrl').value, details: $('#mDetails').value });
+                renderTours();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('[data-edit]')) {
+                const idx = parseInt(e.target.getAttribute('data-edit'), 10);
+                const t = tours[idx];
+                openModal('Edit Tour', `
+                    <div class="row">
+                        <input id="mDate" type="date" value="${t.date || ''}" />
+                        <input id="mVenue" type="text" placeholder="Venue" value="${t.venue || ''}" />
+                        <input id="mLocation" type="text" placeholder="Location" value="${t.location || ''}" />
+                        <input id="mTime" type="text" placeholder="Time" value="${t.time || ''}" />
+                        <input id="mUrl" type="url" placeholder="Ticket URL" value="${t.ticketUrl || ''}" />
+                    </div>
+                    <div class="row" style="margin-top:8px;">
+                        <textarea id="mDetails" placeholder="More Details (text and links)">${t.details || ''}</textarea>
+                    </div>
+                `, async () => {
+                    tours[idx] = { date: $('#mDate').value, venue: $('#mVenue').value, location: $('#mLocation').value, time: $('#mTime').value, ticketUrl: $('#mUrl').value, details: $('#mDetails').value };
+                    renderTours();
+                });
+            }
+            if (e.target.matches('[data-view]')) {
+                const idx = parseInt(e.target.getAttribute('data-view'), 10);
+                const t = tours[idx];
+                openModal('View Tour', `
+                    <p><strong>Date:</strong> ${t.date || ''}</p>
+                    <p><strong>Venue:</strong> ${t.venue || ''}</p>
+                    <p><strong>Location:</strong> ${t.location || ''}</p>
+                    <p><strong>Time:</strong> ${t.time || ''}</p>
+                    <p><strong>Ticket URL:</strong> ${t.ticketUrl || ''}</p>
+                    <p><strong>Details:</strong><br>${(t.details || '').replace(/\n/g,'<br>')}</p>
+                `, async () => {});
+            }
+            if (e.target.matches('[data-del]')) {
+                const idx = parseInt(e.target.getAttribute('data-del'), 10);
+                if (confirm('Delete this tour?')) { tours.splice(idx, 1); renderTours(); }
+            }
+        });
+
+        $('#saveTours').addEventListener('click', async () => {
+            const res = await fetch('../api/save-data.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'tours', content: tours }) });
+            alert(res.ok ? 'Tours saved' : 'Save failed');
+        });
+
+        // Merchandise
+        function renderMerch() {
+            const body = $('#merchTable');
+            body.innerHTML = '';
+            (merch || []).forEach((m, idx) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">${m.title || ''}</td>
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">${m.price ? ('$' + m.price.toFixed ? '$' + m.price : m.price) : ''}</td>
+                    <td style="padding:8px;border-bottom:1px solid #f0f0f0;">
+                        <button class="btn secondary" data-viewm="${idx}">View</button>
+                        <button class="btn secondary" data-editm="${idx}">Edit</button>
+                        <button class="btn secondary" data-delm="${idx}">Delete</button>
+                    </td>`;
+                body.appendChild(tr);
+            });
+        }
+
+        $('#openAddMerch').addEventListener('click', () => {
+            openModal('Add Product', `
+                <div class="row">
+                    <input id="pTitle" type="text" placeholder="Title" />
+                    <input id="pPrice" type="number" step="0.01" placeholder="Price" />
+                    <input id="pImage" type="url" placeholder="Image URL" />
+                    <input id="pLink" type="url" placeholder="Buy Link (optional)" />
+                </div>
+                <div class="row" style="margin-top:8px;">
+                    <textarea id="pDesc" placeholder="Description"></textarea>
+                </div>
+            `, async () => {
+                merch.push({ title: $('#pTitle').value, price: parseFloat($('#pPrice').value || '0'), image: $('#pImage').value, link: $('#pLink').value, description: $('#pDesc').value });
+                renderMerch();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('[data-editm]')) {
+                const idx = parseInt(e.target.getAttribute('data-editm'), 10);
+                const m = merch[idx];
+                openModal('Edit Product', `
+                    <div class="row">
+                        <input id="pTitle" type="text" placeholder="Title" value="${m.title || ''}" />
+                        <input id="pPrice" type="number" step="0.01" placeholder="Price" value="${m.price || ''}" />
+                        <input id="pImage" type="url" placeholder="Image URL" value="${m.image || ''}" />
+                        <input id="pLink" type="url" placeholder="Buy Link (optional)" value="${m.link || ''}" />
+                    </div>
+                    <div class="row" style="margin-top:8px;">
+                        <textarea id="pDesc" placeholder="Description">${m.description || ''}</textarea>
+                    </div>
+                `, async () => {
+                    merch[idx] = { title: $('#pTitle').value, price: parseFloat($('#pPrice').value || '0'), image: $('#pImage').value, link: $('#pLink').value, description: $('#pDesc').value };
+                    renderMerch();
+                });
+            }
+            if (e.target.matches('[data-viewm]')) {
+                const idx = parseInt(e.target.getAttribute('data-viewm'), 10);
+                const m = merch[idx];
+                openModal('View Product', `
+                    <p><strong>Title:</strong> ${m.title || ''}</p>
+                    <p><strong>Price:</strong> ${m.price ? ('$' + m.price) : ''}</p>
+                    <p><strong>Image:</strong> ${m.image || ''}</p>
+                    <p><strong>Buy Link:</strong> ${m.link || ''}</p>
+                    <p><strong>Description:</strong><br>${(m.description || '').replace(/\n/g,'<br>')}</p>
+                `, async () => {});
+            }
+            if (e.target.matches('[data-delm]')) {
+                const idx = parseInt(e.target.getAttribute('data-delm'), 10);
+                if (confirm('Delete this product?')) { merch.splice(idx, 1); renderMerch(); }
+            }
+        });
+
+        $('#saveMerch').addEventListener('click', async () => {
+            const res = await fetch('../api/save-data.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'merchandise', content: merch }) });
+            alert(res.ok ? 'Merchandise saved' : 'Save failed');
+        });
+
+        
+    </script>
+</body>
+</html>
+

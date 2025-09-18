@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EPK - Techung</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -25,8 +29,27 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay">
+        <div class="mobile-nav-menu">
+            <ul>
+                <li><a href="tour.html">Tour</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="merchandise.html">Merchandise</a></li>
+                <li><a href="epk.html" class="active">EPK</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
     <main class="page-main">
         <section class="tour-hero">
@@ -98,23 +121,26 @@
             <div class="container">
                 <h2>Photo Gallery</h2>
                 <div class="gallery-scroll">
-                    <div class="gallery-item">
-                        <img src="img/Techung for Web/Jim Block photo 1.jpg" alt="Techung Performance">
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Jim Block photo 1.jpg')">
+                        <img src="img/Gallery/Jim Block photo 1.jpg" alt="Techung Performance">
                     </div>
-                    <div class="gallery-item">
-                        <img src="img/Techung for Web/Jim Block photo 2.jpg" alt="Techung Portrait">
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Jim Blocks photo brocate dress.jpg')">
+                        <img src="img/Gallery/Jim Blocks photo brocate dress.jpg" alt="Techung in Brocade Dress">
                     </div>
-                    <div class="gallery-item">
-                        <img src="img/Techung for Web/DSC_4959.JPG" alt="Techung Live">
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Judy Detor photo.jpeg')">
+                        <img src="img/Gallery/Judy Detor photo.jpeg" alt="Techung Portrait by Judy Detor">
                     </div>
-                    <div class="gallery-item">
-                        <img src="img/Techung for Web/DSC_7892.jpg" alt="Techung Concert">
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Techung in Snow.jpg')">
+                        <img src="img/Gallery/Techung in Snow.jpg" alt="Techung in Snow">
                     </div>
-                    <div class="gallery-item">
-                        <img src="img/Techung for Web/Rubin Museum 2012.JPG" alt="Techung at Rubin Museum">
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Techung Portrait.JPG')">
+                        <img src="img/Gallery/Techung Portrait.JPG" alt="Techung Portrait">
                     </div>
-                    <div class="gallery-item">
-                        <img src="img/Techung for Web/Sonam Zoksang photo.JPG" alt="Techung Traditional">
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Techung.jpg')">
+                        <img src="img/Gallery/Techung.jpg" alt="Techung">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Tenchung Singing to HHDL.jpg')">
+                        <img src="img/Gallery/Tenchung Singing to HHDL.jpg" alt="Techung Singing to His Holiness the Dalai Lama">
                     </div>
                 </div>
             </div>
@@ -159,6 +185,14 @@
             </div>
         </section>
     </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        </div>
+    </div>
 
     <style>
         .epk-bio {
@@ -247,12 +281,75 @@
             height: 400px;
         }
         
+        .gallery-item {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 8px;
         }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            position: relative;
+            margin: 2rem;
+            height: calc(100vh - 4rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -1rem;
+            right: 0;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
         
         .epk-videos {
             padding: 80px 0;
@@ -335,12 +432,12 @@
             <div class="footer-content">
                 <a href="contact.html" class="get-in-touch-btn">Get in Touch</a>
                 <div class="social-icons">
-                    <a href="#" class="social-icon" aria-label="Instagram">
+                    <a href="https://www.instagram.com/techungtibet" class="social-icon" aria-label="Instagram" target="_blank">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
-                    <a href="#" class="social-icon" aria-label="Facebook">
+                    <a href="https://www.facebook.com/techung" class="social-icon" aria-label="Facebook" target="_blank">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
@@ -350,5 +447,60 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+
+            lightboxImage.src = imageSrc;
+            lightbox.style.display = 'block';
+
+            // Prevent body scroll when lightbox is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Prevent closing when clicking on the image itself
+        document.getElementById('lightbox-image').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // Mobile hamburger menu functionality
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+        if (hamburgerMenu) {
+            hamburgerMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                if (mobileOverlay) {
+                    mobileOverlay.style.display = mobileOverlay.style.display === 'flex' ? 'none' : 'flex';
+                }
+            });
+        }
+        // Close mobile menu when clicking on overlay or menu items
+        if (mobileOverlay) {
+            mobileOverlay.addEventListener('click', function(e) {
+                if (e.target === this || e.target.tagName === 'A') {
+                    this.style.display = 'none';
+                    hamburgerMenu.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
