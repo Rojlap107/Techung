@@ -2,10 +2,24 @@
 const tourEvents = [
     {
         date: "2026-04-01",
-        venue: "Not Fixed",
-        location: "India",
-        time: "8:00 PM",
-        details: "I am planning a India Tour next year. Once there are more details, I will update here."
+        venue: "Tentative",
+        location: "North-East India",
+        time: "--:--",
+        details: "Big news, everyone! I am planning an North East India Tour next year. <br>This will be a special journey, and I can’t wait to share the music with you live. <br>Stay tuned—details on cities, dates, and tickets will be announced here first. Your energy and support mean everything, and I promise this tour will be unforgettable!"
+    },
+    {
+        date: "2026-04-10",
+        venue: "Tentative",
+        location: "South India",
+        time: "--:--",
+        details: "Big news, everyone! I am planning an South India Tour next year. <br>This will be a special journey, and I can’t wait to share the music with you live. <br>Stay tuned—details on cities, dates, and tickets will be announced here first. Your energy and support mean everything, and I promise this tour will be unforgettable!"
+    },
+    {
+        date: "2026-04-20",
+        venue: "Tentative",
+        location: "North India",
+        time: "--:--",
+        details: "Big news, everyone! I am planning an North India Tour next year. <br>This will be a special journey, and I can’t wait to share the music with you live. <br>Stay tuned—details on cities, dates, and tickets will be announced here first. Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
 ];
 
