@@ -381,8 +381,8 @@ footer .container {
     color: #660000;
 }
 
-.blessing-section {
-    background-image: url('img/blessing-background.jpg');
+.nangma-toeshey-section {
+    background-image: url('img/nangma-toeshey-background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -390,7 +390,7 @@ footer .container {
     position: relative;
 }
 
-.blessing-section::before {
+.nangma-toeshey-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -401,12 +401,12 @@ footer .container {
     z-index: 1;
 }
 
-.blessing-section .container {
+.nangma-toeshey-section .container {
     position: relative;
     z-index: 2;
 }
 
-.blessing-content {
+.nangma-toeshey-content {
     display: grid;
     grid-template-columns: 400px 1fr;
     gap: 4rem;
@@ -415,18 +415,18 @@ footer .container {
     margin: 0 auto;
 }
 
-.blessing-image {
+.nangma-toeshey-image {
     clip-path: polygon(0 0, 100% 0, 100% 75%, 85% 100%, 0 100%);
     overflow: hidden;
 }
 
-.blessing-image img {
+.nangma-toeshey-image img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.blessing-text h2 {
+.nangma-toeshey-text h2 {
     font-family: 'Monlam Uni Dutsa', serif;
     font-size: 3rem;
     font-weight: 400;
@@ -436,7 +436,7 @@ footer .container {
     line-height: 1.4;
 }
 
-.blessing-text p {
+.nangma-toeshey-text p {
     font-family: 'Spectral', serif;
     font-size: 1.1rem;
     line-height: 1.8;
@@ -445,7 +445,7 @@ footer .container {
     margin-bottom: 1.5rem;
 }
 
-.blessing-btn {
+.nangma-toeshey-btn {
     display: inline-block;
     padding: 0.8rem 2rem;
     background-color: #8a0000;
@@ -457,7 +457,7 @@ footer .container {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.blessing-btn:hover {
+.nangma-toeshey-btn:hover {
     background-color: #660000;
     transform: translateY(-2px);
 }
@@ -2003,23 +2003,23 @@ footer .container {
         padding-right: 0;
     }
 
-    .blessing-content {
+    .nangma-toeshey-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
-    .blessing-image {
+    .nangma-toeshey-image {
         clip-path: none;
         max-width: 350px;
         margin: 0 auto;
     }
 
-    .blessing-text h2 {
+    .nangma-toeshey-text h2 {
         font-size: 2rem;
         text-align: center;
     }
 
-    .blessing-text p {
+    .nangma-toeshey-text p {
         text-align: center;
     }
 
