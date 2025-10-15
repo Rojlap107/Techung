@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Monlam Uni Dutsa';
+    src: url('fonts/MonlamUniDutsa1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -372,6 +379,69 @@ footer .container {
 
 .schedule-link:hover {
     color: #660000;
+}
+
+.blessing-section {
+    background-image: url('img/blessing-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5rem 0;
+    position: relative;
+}
+
+.blessing-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 248, 230, 0.95);
+    z-index: 1;
+}
+
+.blessing-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.blessing-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.blessing-image {
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 85% 100%, 0 100%);
+    overflow: hidden;
+}
+
+.blessing-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.blessing-text h2 {
+    font-family: 'Monlam Uni Dutsa', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #8a0000;
+    margin-bottom: 2rem;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.blessing-text p {
+    font-family: 'Spectral', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: left;
 }
 
 .music-preview {
@@ -1913,6 +1983,26 @@ footer .container {
 
     .about-text {
         padding-right: 0;
+    }
+
+    .blessing-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .blessing-image {
+        clip-path: none;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .blessing-text h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .blessing-text p {
+        text-align: center;
     }
 
     .upcoming-events-grid {
