@@ -15,7 +15,7 @@ const tourEvents = [
         details: "Big news, everyone! I am coming to Darjeeling this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
     {
-        date: "2025-11-01",
+        date: "2025-11-02",
         venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
         location: "Cholka Sum Hall, Gangtok, India",
         time: "16:00",

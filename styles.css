@@ -1976,22 +1976,33 @@ footer .container {
     
     .albums-section {
         height: auto;
-        min-height: 100vh;
+        min-height: 80vh;
+        padding: 3rem 0;
     }
 
     .albums-section .container {
-        padding: 3rem 1rem;
+        padding: 2rem 0;
     }
 
     .albums-section .albums-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        display: flex;
+        overflow-x: auto;
+        gap: 2rem;
         max-width: 100%;
+        margin: 0 0 2rem;
+        padding: 0 20px 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .albums-section .album-card {
+        flex: 0 0 180px;
+        scroll-snap-align: center;
     }
 
     .albums-section .album-cover {
-        height: 150px;
-        width: 150px;
+        height: 180px;
+        width: 180px;
     }
     
     .albums-section h2 {
@@ -2100,18 +2111,17 @@ footer .container {
         width: 120px;
     }
 
-    .albums-section .albums-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .albums-section .album-card {
+        flex: 0 0 160px;
     }
 
     .albums-section .album-cover {
-        height: 180px;
-        width: 180px;
+        height: 160px;
+        width: 160px;
     }
 
     .albums-section h2 {
         font-size: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 }
