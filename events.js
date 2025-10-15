@@ -1,25 +1,32 @@
 // Tour Events Data (fallback; will be overridden by JSON if available)
 const tourEvents = [
     {
-        date: "2026-04-01",
-        venue: "Tentative",
-        location: "North-East India",
-        time: "--:--",
-        details: "Big news, everyone! I am planning an North East India Tour next year. <br>This will be a special journey, and I can’t wait to share the music with you live. <br>Stay tuned—details on cities, dates, and tickets will be announced here first. Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        date: "2025-10-31",
+        venue: "Mani Lhakhang",
+        location: "Kalimpong, India",
+        time: "16:00",
+        details: "Big news, everyone! I am coming to Kalimpong this October. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
     {
-        date: "2026-04-10",
-        venue: "Tentative",
-        location: "South India",
-        time: "--:--",
-        details: "Big news, everyone! I am planning an South India Tour next year. <br>This will be a special journey, and I can’t wait to share the music with you live. <br>Stay tuned—details on cities, dates, and tickets will be announced here first. Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        date: "2025-11-01",
+        venue: "Ssambhota Tibetan School",
+        location: "Darjeeling, India",
+        time: "16:00",
+        details: "Big news, everyone! I am coming to Darjeeling this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
     {
-        date: "2026-04-20",
-        venue: "Tentative",
-        location: "North India",
-        time: "--:--",
-        details: "Big news, everyone! I am planning an North India Tour next year. <br>This will be a special journey, and I can’t wait to share the music with you live. <br>Stay tuned—details on cities, dates, and tickets will be announced here first. Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        date: "2025-11-01",
+        venue: "Cholka Sum Hall",
+        location: "Gangtok, India",
+        time: "16:00",
+        details: "Big news, everyone! I am coming to Gangtok this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
+    },
+    {
+        date: "2025-11-08",
+        venue: "TIPA Hall",
+        location: "Dharamsala, India",
+        time: "17:30",
+        details: "Big news, everyone! I am coming to Dharamsala this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
 ];
 
