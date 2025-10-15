@@ -1872,10 +1872,15 @@ footer .container {
         margin-bottom: 0.5rem;
     }
     
+    .hero {
+        height: 100vh;
+        max-height: none;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero-content p {
         font-size: 1.2rem;
     }
