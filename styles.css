@@ -1914,9 +1914,15 @@ footer .container {
         gap: 1.5rem;
         max-width: 100%;
         margin: 0 0 3rem;
-        padding: 0 20px 1rem;
+        padding: 0 20px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .upcoming-events-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
 
     .event-card {
@@ -1991,10 +1997,16 @@ footer .container {
         gap: 2rem;
         max-width: 100%;
         margin: 0 0 2rem;
-        padding: 0 20px 1rem;
+        padding: 0 20px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         flex-wrap: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .albums-section .albums-grid::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
 
     .albums-section .album-card {
