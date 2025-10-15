@@ -2,29 +2,29 @@
 const tourEvents = [
     {
         date: "2025-10-31",
-        venue: "Mani Lhakhang",
-        location: "Kalimpong, India",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        location: "Mani Lhakhang, Kalimpong, India",
         time: "16:00",
         details: "Big news, everyone! I am coming to Kalimpong this October. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
     {
         date: "2025-11-01",
-        venue: "Ssambhota Tibetan School",
-        location: "Darjeeling, India",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        location: "Sambhota Tibetan School, Darjeeling, India",
         time: "16:00",
         details: "Big news, everyone! I am coming to Darjeeling this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
     {
         date: "2025-11-01",
-        venue: "Cholka Sum Hall",
-        location: "Gangtok, India",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        location: "Cholka Sum Hall, Gangtok, India",
         time: "16:00",
         details: "Big news, everyone! I am coming to Gangtok this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
     {
         date: "2025-11-08",
-        venue: "TIPA Hall",
-        location: "Dharamsala, India",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        location: "TIPA Hall, Dharamsala, India",
         time: "17:30",
         details: "Big news, everyone! I am coming to Dharamsala this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
     },
