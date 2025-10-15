@@ -1903,9 +1903,26 @@ footer .container {
         gap: 2rem;
         text-align: center;
     }
-    
+
     .about-text {
         padding-right: 0;
+    }
+
+    .upcoming-events-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 1.5rem;
+        max-width: 100%;
+        margin: 0 0 3rem;
+        padding: 0 20px 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .event-card {
+        flex: 0 0 280px;
+        min-height: 350px;
+        scroll-snap-align: center;
     }
     
     .tour-item {
