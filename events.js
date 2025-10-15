@@ -5,28 +5,28 @@ const tourEvents = [
         venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
         location: "Mani Lhakhang, Kalimpong, India",
         time: "16:00",
-        details: "Big news, everyone! I am coming to Kalimpong this October. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        details: "Big news, everyone! I am coming to Kalimpong this October. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/kalimpong-event-2025.jpg' alt='Kalimpong Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2025-11-01",
         venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
         location: "Sambhota Tibetan School, Darjeeling, India",
         time: "16:00",
-        details: "Big news, everyone! I am coming to Darjeeling this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        details: "Big news, everyone! I am coming to Darjeeling this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/darjeeling-event-2025.jpg' alt='Darjeeling Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2025-11-02",
         venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
         location: "Cholka Sum Hall, Gangtok, India",
         time: "16:00",
-        details: "Big news, everyone! I am coming to Gangtok this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        details: "Big news, everyone! I am coming to Gangtok this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/gangtok-event-2025.jpg' alt='Gangtok Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2025-11-08",
         venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
         location: "TIPA Hall, Dharamsala, India",
         time: "17:30",
-        details: "Big news, everyone! I am coming to Dharamsala this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!"
+        details: "Big news, everyone! I am coming to Dharamsala this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/dharamsala-event-2025.jpg' alt='Dharamsala Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
 ];
 
