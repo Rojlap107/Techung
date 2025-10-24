@@ -2,31 +2,38 @@
 const tourEvents = [
     {
         date: "2025-10-31",
-        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
         location: "Mani Lhakhang, Kalimpong, India",
         time: "16:00",
         details: "Big news, everyone! I am coming to Kalimpong this October. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/kalimpong-event-2025.jpg' alt='Kalimpong Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2025-11-01",
-        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
         location: "Sambhota Tibetan School, Darjeeling, India",
         time: "16:00",
         details: "Big news, everyone! I am coming to Darjeeling this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/darjeeling-event-2025.jpg' alt='Darjeeling Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2025-11-02",
-        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
         location: "Cholka Sum Hall, Gangtok, India",
         time: "16:00",
         details: "Big news, everyone! I am coming to Gangtok this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/gangtok-event-2025.jpg' alt='Gangtok Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
-        date: "2025-11-08",
-        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma Toeshey",
+        date: "2025-11-15",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
         location: "TIPA Hall, Dharamsala, India",
         time: "17:30",
         details: "Big news, everyone! I am coming to Dharamsala this November. <br>Your energy and support mean everything, and I promise this tour will be unforgettable!<br><img src='img/events/dharamsala-event-2025.jpg' alt='Dharamsala Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2025-10-25",
+        venue: "Techung Boby DeVito",
+        location: "Temple Road, Mcloed Ganj, Dharamsala (opposite to Ropeway, near parking ground)",
+        time: "17:00",
+        details: "<img src='img/events/khadhok-event-2025.jpg' alt='Dharamsala Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
 ];
 
