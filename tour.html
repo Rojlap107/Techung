@@ -62,12 +62,6 @@
             <div class="container">
                 <h2>Upcoming Events</h2>
 
-                <div class="tour-filters">
-                    <select id="locationFilter">
-                        <option value="">All Locations</option>
-                    </select>
-                </div>
-
                 <div class="tour-list" id="tourList">
                     <!-- Tour events will be loaded dynamically -->
                 </div>
@@ -75,6 +69,16 @@
                 <div class="booking-info">
                     <h3>Private Events & Bookings</h3>
                     <p>For private events, cultural celebrations, and booking inquiries, please <a href="contact.html">contact us</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tour-dates past-events-section">
+            <div class="container">
+                <h2>Past Events</h2>
+
+                <div class="tour-list" id="pastEventsList">
+                    <!-- Past tour events will be loaded dynamically -->
                 </div>
             </div>
         </section>
@@ -136,13 +140,8 @@
 
         // Load all tour events on page load
         document.addEventListener('DOMContentLoaded', function() {
-            populateLocationFilter();
             loadAllTourEvents();
-
-            // Add event listener for location filter
-            document.getElementById('locationFilter').addEventListener('change', function() {
-                loadAllTourEvents();
-            });
+            loadPastEvents();
 
             // Mobile hamburger menu functionality
             const hamburgerMenu = document.querySelector('.hamburger-menu');
@@ -166,38 +165,18 @@
             }
         });
 
-        function populateLocationFilter() {
-            const allEvents = getUpcomingEvents();
-            const locations = [...new Set(allEvents.map(event => event.location))].sort();
-            const filterSelect = document.getElementById('locationFilter');
-            
-            locations.forEach(location => {
-                const option = document.createElement('option');
-                option.value = location;
-                option.textContent = location;
-                filterSelect.appendChild(option);
-            });
-        }
-
         function loadAllTourEvents() {
             const allEvents = getUpcomingEvents();
-            const selectedLocation = document.getElementById('locationFilter').value;
-
-            // Filter events by location if selected
-            const filteredEvents = selectedLocation
-                ? allEvents.filter(event => event.location === selectedLocation)
-                : allEvents;
-
             const container = document.getElementById('tourList');
 
-            if (filteredEvents.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666;">No upcoming events scheduled for this location.</p>';
+            if (allEvents.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666;">No upcoming events scheduled.</p>';
                 return;
             }
 
             container.innerHTML = '';
 
-            filteredEvents.forEach((event, index) => {
+            allEvents.forEach((event, index) => {
                 const formattedDate = formatDate(event.date);
                 const tourItem = document.createElement('div');
                 tourItem.className = 'tour-item';
@@ -222,10 +201,60 @@
             });
         }
 
-        // Function to toggle event details display (same as lyrics functionality)
+        function loadPastEvents() {
+            const pastEvents = getPastEvents();
+            const container = document.getElementById('pastEventsList');
+
+            if (pastEvents.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666;">No past events to display.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+
+            pastEvents.forEach((event, index) => {
+                const formattedDate = formatDate(event.date);
+                const tourItem = document.createElement('div');
+                tourItem.className = 'tour-item';
+
+                tourItem.innerHTML = `
+                    <div class="tour-date">
+                        <span class="date-text">${formattedDate.month} ${formattedDate.day}</span>
+                    </div>
+                    <div class="tour-details">
+                        <h3 class="venue-name">${event.venue}</h3>
+                        <p class="venue-location">${event.location}</p>
+                    </div>
+                    <div class="tour-action">
+                        <button class="show-details-btn" onclick="togglePastDetails(${index})">Show Details</button>
+                    </div>
+                    <div class="event-details" id="past-details-${index}" style="display: none;">
+                        <p>${event.details || 'Details coming soon...'}</p>
+                    </div>
+                `;
+
+                container.appendChild(tourItem);
+            });
+        }
+
+        // Function to toggle event details display
         function toggleDetails(index) {
             const detailsDiv = document.getElementById(`details-${index}`);
             const button = document.querySelector(`[onclick="toggleDetails(${index})"]`);
+
+            if (detailsDiv.style.display === 'none') {
+                detailsDiv.style.display = 'block';
+                button.textContent = 'Hide Details';
+            } else {
+                detailsDiv.style.display = 'none';
+                button.textContent = 'Show Details';
+            }
+        }
+
+        // Function to toggle past event details display
+        function togglePastDetails(index) {
+            const detailsDiv = document.getElementById(`past-details-${index}`);
+            const button = document.querySelector(`[onclick="togglePastDetails(${index})"]`);
 
             if (detailsDiv.style.display === 'none') {
                 detailsDiv.style.display = 'block';

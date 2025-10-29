@@ -73,6 +73,17 @@ function getUpcomingEvents(limit = null) {
     return limit ? upcoming.slice(0, limit) : upcoming;
 }
 
+// Function to get past events (sorted by date, most recent first)
+function getPastEvents(limit = null) {
+    const source = (Array.isArray(_tourCache) && _tourCache.length > 0) ? _tourCache : tourEvents;
+    const today = new Date();
+    const past = source
+        .filter(event => new Date(event.date) < today)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+    
+    return limit ? past.slice(0, limit) : past;
+}
+
 // Function to format date for display
 function formatDate(dateString) {
     const date = new Date(dateString);
