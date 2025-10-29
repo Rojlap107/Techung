@@ -35,6 +35,20 @@ const tourEvents = [
         time: "17:00",
         details: "<img src='img/events/khadhok-event-2025.jpg' alt='Dharamsala Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2025-11-03",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
+        location: "Rumtek Dharma, Chakra Centre, Sikkim",
+        time: "14:00",
+        details: "<img src='img/events/sikkim-event-2025.jpg' alt='Sikkim Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2025-11-05",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
+        location: "Kalachakra Monastery Ground, Salugara",
+        time: "16:00",
+        details: "<img src='img/events/salugara-event-2025.jpg' alt='Salugara Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available
