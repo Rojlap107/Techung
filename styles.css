@@ -257,6 +257,20 @@ footer .container {
     color: #ccc;
 }
 
+.copyright a,
+.norzin-credit a,
+.norzin-consultancy a {
+    color: white;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.copyright a:hover,
+.norzin-credit a:hover,
+.norzin-consultancy a:hover {
+    color: #ccc;
+}
+
 .about-preview {
     background-color: white;
     padding: 4rem 0;
