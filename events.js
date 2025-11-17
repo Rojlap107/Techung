@@ -49,6 +49,13 @@ const tourEvents = [
         time: "16:00",
         details: "<img src='img/events/salugara-event-2025.jpg' alt='Salugara Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2025-11-18",
+        venue: "ནང་མ་དང་སྟོད་གཞས། Nangma and Toeshey",
+        location: "TCV Day School, Majnu Ka Tila, New Delhi",
+        time: "16:00",
+        details: "<img src='img/events/delhi-event-2025.jpg' alt='Delhi Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available
