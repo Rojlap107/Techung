@@ -56,6 +56,13 @@ const tourEvents = [
         time: "16:00",
         details: "<img src='img/events/delhi-event-2025.jpg' alt='Delhi Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2025-12-21",
+        venue: "Qissa Rooh Ka: Folk Music of Our Mountains",
+        location: "Manara Community Library, Village Mohli, Near Hotel 360, Mohli-Khanyara Road, Dharamshala",
+        time: "16:00",
+        details: "Dhauladhar Reading Festival<br>Fireside discussion & live music with Techung (Singer-Songwriter), Chandrarekha Dhadwal (Author, Poet, & Folk Culture Scholar), and Janmajay Guleria (Musicologist, Singer & Educationist). Accompanied by Suraj on dholak and Varun on flute.<br><img src='img/events/dhaluadhar-reading-festival.jpg' alt='Dhauladhar Reading Festival' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available
