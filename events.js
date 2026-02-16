@@ -63,6 +63,13 @@ const tourEvents = [
         time: "16:00",
         details: "Dhauladhar Reading Festival<br>Fireside discussion & live music with Techung (Singer-Songwriter), Chandrarekha Dhadwal (Author, Poet, & Folk Culture Scholar), and Janmajay Guleria (Musicologist, Singer & Educationist). Accompanied by Suraj on dholak and Varun on flute.<br><img src='img/events/dhaluadhar-reading-festival.jpg' alt='Dhauladhar Reading Festival' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2026-02-23",
+        venue: "TDL SPORTS CLUB FUNDRAISING LOSAR CONCERT 2026",
+        location: "DYSA Ground, Mundgod, India",
+        time: "18:00",
+        details: "<img src='img/events/mundgod-2026.jpg' alt='Mundgod Event' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available
@@ -72,8 +79,8 @@ let _tourCache = null;
         fetch('data/tours.json?_=' + Date.now())
             .then(res => res.ok ? res.json() : Promise.reject())
             .then(json => { if (Array.isArray(json)) { _tourCache = json; } })
-            .catch(() => {});
-    } catch (e) {}
+            .catch(() => { });
+    } catch (e) { }
 })();
 
 // Function to get upcoming events (sorted by date)
@@ -83,7 +90,7 @@ function getUpcomingEvents(limit = null) {
     const upcoming = source
         .filter(event => new Date(event.date) >= today)
         .sort((a, b) => new Date(a.date) - new Date(b.date));
-    
+
     return limit ? upcoming.slice(0, limit) : upcoming;
 }
 
@@ -94,7 +101,7 @@ function getPastEvents(limit = null) {
     const past = source
         .filter(event => new Date(event.date) < today)
         .sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+
     return limit ? past.slice(0, limit) : past;
 }
 
@@ -102,7 +109,7 @@ function getPastEvents(limit = null) {
 function formatDate(dateString) {
     const date = new Date(dateString);
     const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    
+
     return {
         month: months[date.getMonth()],
         day: date.getDate().toString().padStart(2, '0'),
@@ -113,11 +120,11 @@ function formatDate(dateString) {
 // Function to format date for tour page
 function formatDateFull(dateString) {
     const date = new Date(dateString);
-    const options = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
     };
     return date.toLocaleDateString('en-US', options);
 }
