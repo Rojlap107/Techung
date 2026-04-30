@@ -91,7 +91,31 @@
             </div>
         </section>
 
+        <!-- Recent Updates Section -->
+        <section class="recent-updates-section">
+            <div class="container">
+                <h2 class="updates-title">Recent Updates</h2>
+                <div class="updates-list">
+                    <div class="update-item" onclick="openUpdateModal(this)">
+                        <img src="img/updates/lifetime-achievement-award-2026.jpg" alt="Lifetime Achievement Award" class="update-thumb">
+                        <div class="update-text">
+                            <p>Techung honored with the Lifetime Achievement Award by the Tibetan Chamber of Commerce in Nepal, April 2026.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- Update Modal -->
+    <div class="update-modal-overlay" id="update-modal-overlay">
+        <div class="update-modal-container">
+            <span class="update-modal-close" id="update-modal-close">&times;</span>
+            <img class="update-modal-image" id="update-modal-image" src="" alt="">
+            <p class="update-modal-caption" id="update-modal-caption"></p>
+        </div>
+    </div>
 
     <!-- Lightbox Modal -->
     <div class="lightbox-overlay" id="lightbox-overlay">
@@ -446,6 +470,158 @@
             border-radius: 20px;
         }
 
+        /* Recent Updates Section */
+        .recent-updates-section {
+            background-color: #f8f8f8;
+            padding: 4rem 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .updates-title {
+            color: #8a0000;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .updates-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        .update-item:hover {
+            box-shadow: 0 4px 20px rgba(138, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .update-thumb {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .update-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Update Modal */
+        .update-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .update-modal-overlay.active {
+            opacity: 1;
+        }
+
+        .update-modal-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .update-modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .update-modal-caption {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            padding: 0 1rem;
+        }
+
+        .update-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 3rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 3001;
+            background: none;
+            border: none;
+        }
+
+        .update-modal-close:hover {
+            color: #ccc;
+        }
+
+        @media (max-width: 1200px) {
+            .recent-updates-section {
+                padding: 2.5rem 0;
+            }
+
+            .updates-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .update-item {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .update-thumb {
+                width: 70px;
+                height: 70px;
+            }
+
+            .update-text p {
+                font-size: 0.9rem;
+            }
+
+            .update-modal-close {
+                top: -40px;
+                font-size: 2.5rem;
+            }
+
+            .update-modal-caption {
+                font-size: 1rem;
+            }
+        }
+
         .mobile-nav-overlay {
             position: fixed;
             top: 0;
@@ -725,6 +901,34 @@ Currently (2021) He serves as artist advisory committee member for the New York 
             lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
         }
 
+        // Update modal functionality
+        function openUpdateModal(item) {
+            const img = item.querySelector('.update-thumb');
+            const text = item.querySelector('.update-text p');
+            const overlay = document.getElementById('update-modal-overlay');
+            const modalImg = document.getElementById('update-modal-image');
+            const modalCaption = document.getElementById('update-modal-caption');
+
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modalCaption.textContent = text.textContent;
+
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUpdateModal() {
+            const overlay = document.getElementById('update-modal-overlay');
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             // Load text content
             document.getElementById('eng-text').innerHTML = formatText(engContent.text);
@@ -799,8 +1003,29 @@ Currently (2021) He serves as artist advisory committee member for the New York 
                 });
             }
 
+            // Update modal event listeners
+            const updateModalClose = document.getElementById('update-modal-close');
+            const updateModalOverlay = document.getElementById('update-modal-overlay');
+
+            if (updateModalClose) {
+                updateModalClose.addEventListener('click', closeUpdateModal);
+            }
+
+            if (updateModalOverlay) {
+                updateModalOverlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeUpdateModal();
+                    }
+                });
+            }
+
             // Keyboard navigation for lightbox
             document.addEventListener('keydown', function(e) {
+                if (updateModalOverlay && updateModalOverlay.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeUpdateModal();
+                    }
+                }
                 if (lightboxOverlay && lightboxOverlay.classList.contains('active')) {
                     if (e.key === 'Escape') {
                         closeLightbox();

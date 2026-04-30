@@ -77,6 +77,13 @@ const tourEvents = [
         time: "18:00",
         details: "Tsampa Rolyang Presents — A special evening dedicated to Tibetan Performing Arts, Cultural Preservation, and Artist Empowerment. An inspiring concert featuring renowned and emerging Tibetan artists uniting through music, culture, and community.<br>Adv. Price ₹250 | Gate Price ₹300<br><img src='img/events/monlam-music-concert-2026.jpg' alt='Monlam Music Concert 2026' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2026-04-04",
+        venue: "Himalayan Gala Night",
+        location: "Kathmandu, Nepal",
+        time: "",
+        details: "<img src='img/events/himalayan-gala-night-2026.jpg' alt='Himalayan Gala Night' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available
