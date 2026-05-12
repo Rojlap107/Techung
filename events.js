@@ -84,6 +84,13 @@ const tourEvents = [
         time: "",
         details: "<img src='img/events/himalayan-gala-night-2026.jpg' alt='Himalayan Gala Night' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2026-05-13",
+        venue: "Dream of the Fall — A Solo Exhibition of Self-Portrait Photography by Tenzin Dolker",
+        location: "Juniper Cafe, Bhagsu Road, Dharamsala",
+        time: "18:00",
+        details: "<img src='img/events/dream-of-the-fall-2026.jpg' alt='Dream of the Fall Exhibition' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available
