@@ -1032,6 +1032,24 @@ const albums = [
                 lyrics: ""
             }
         ]
+    },
+    {
+        id: 16,
+        title: "Emaho-How Wonderful! ཨེ་མ་ཧོ། ༼དྲུག་ཅུའི་དབྱངས་ལྡན།༽",
+        artist: "Techung",
+        collaborators: ["Mamadou", "Benoko Beakite", "Dominic Messinger", "Rinzin Wangyal", "Mark Block"],
+        year: 2022,
+        description: "A musical tribute to His Holiness the Dalai Lama on his 87th birthday, with lyrics originating from a composition by one of His Holiness's tutors in 1960s Dharamsala, India. Techung is joined by international musicians including Mamadou (kalabaash, Mali), Benoko Beakite (kamalagone harp, Mali), Emmy Award-winning composer Dominic Messinger, guitarist Rinzin Wangyal, and cellist Mark Block. Mixed by Grammy-winning sound engineer Gerry \"The Guv\" Brown and produced by Rex Niswander.",
+        coverImage: "img/album covers/Emaho-How Wonderful.jpg",
+        releaseDate: "2022-07-05",
+        songs: [
+            {
+                title: "Emaho-How Wonderful! ཨེ་མ་ཧོ། ༼དྲུག་ཅུའི་དབྱངས་ལྡན།༽",
+                duration: "",
+                youtubeUrl: "https://tsongra.com/product/emaho-how-wonderful-%e0%bd%a8%e0%bd%ba%e0%bc%8b%e0%bd%98%e0%bc%8b%e0%bd%a7%e0%bd%bc%e0%bc%8d-%e0%bc%bc%e0%bd%91%e0%be%b2%e0%bd%b4%e0%bd%82%e0%bc%8b%e0%bd%85%e0%bd%b4%e0%bd%a0%e0%bd%b2%e0%bc%8b/",
+                lyrics: ""
+            }
+        ]
     }
 ];
 
