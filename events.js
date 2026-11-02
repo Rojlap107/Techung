@@ -91,6 +91,41 @@ const tourEvents = [
         time: "18:00",
         details: "<img src='img/events/dream-of-the-fall-2026.jpg' alt='Dream of the Fall Exhibition' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
+    {
+        date: "2026-10-10",
+        venue: "Phayul — Tibet Theatre Premiere",
+        location: "Dharamshala, India",
+        time: "",
+        details: "Jhola Techung is in Tibet Theatre's play “Phayul”, premiering in October 2026 and touring across India in the following months.<br><img src='img/events/phayul-premiere-2026.jpg' alt='Phayul Premiere' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2026-10-11",
+        venue: "TARA the Enchantress by S. Sambasivan: Book Launch",
+        location: "The Other Space Cafe, Jogiwara Road, Dharamshala",
+        time: "",
+        details: "Book launch of TARA the Enchantress by S. Sambasivan.<br><img src='img/events/tara-the-enchantress-2026.jpeg' alt='TARA the Enchantress Book Launch' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2026-10-27",
+        venue: "Tibet Film Festival",
+        location: "Sarah College, Dharamshala",
+        time: "",
+        details: "Performance with Tenzin Ingsel and Namgyal Dolma.<br><img src='img/events/tibet-film-festival-2026.jpg' alt='Tibet Film Festival' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2026-10-29",
+        venue: "Dharamshala International Film Festival",
+        location: "TCV Upper Dharamshala",
+        time: "",
+        details: "Performance at the Opening Ceremony with Tenzin Ingsel and Namgyal Drolma.<br><img src='img/events/diff-opening-2026.jpg' alt='Dharamshala International Film Festival' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2026-10-31",
+        venue: "Lower TCV Reunion and Gathering",
+        location: "TCV Lower Dharamshala",
+        time: "",
+        details: "Performance at the Lower TCV Reunion and Gathering.<br><img src='img/events/tcv-lower-reunion-2026.jpg' alt='Lower TCV Reunion' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
 ];
 
 // Prefetch tours JSON to override fallback when available

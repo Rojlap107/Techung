@@ -142,6 +142,10 @@
                     <div class="gallery-item" onclick="openLightbox('img/Gallery/Tenchung Singing to HHDL.jpg')">
                         <img src="img/Gallery/Tenchung Singing to HHDL.jpg" alt="Techung Singing to His Holiness the Dalai Lama">
                     </div>
+                    <div class="gallery-item" onclick="openLightbox('img/Gallery/Bhuchung D Sonam photo.jpeg')">
+                        <img src="img/Gallery/Bhuchung D Sonam photo.jpeg" alt="Techung performing at The Other Space Cafe, Dharamshala. Photo by Bhuchung D. Sonam">
+                        <span class="photo-credit">Photo by Bhuchung D. Sonam</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -298,6 +302,22 @@
             height: 100%;
             object-fit: cover;
             border-radius: 8px;
+        }
+
+        .gallery-item {
+            position: relative;
+        }
+
+        .photo-credit {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.5rem 0.75rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 0.85rem;
+            border-radius: 0 0 8px 8px;
         }
 
         /* Lightbox Styles */
