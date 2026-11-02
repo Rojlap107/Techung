@@ -92,11 +92,11 @@ const tourEvents = [
         details: "<img src='img/events/dream-of-the-fall-2026.jpg' alt='Dream of the Fall Exhibition' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
-        date: "2026-10-10",
+        date: "2026-10-09",
         venue: "Phayul — Tibet Theatre Premiere",
         location: "Dharamshala, India",
         time: "",
-        details: "Jhola Techung is in Tibet Theatre's play “Phayul”, premiering in October 2026 and touring across India in the following months.<br><img src='img/events/phayul-premiere-2026.jpg' alt='Phayul Premiere' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+        details: "Jhola Techung is in Tibet Theatre's play “Phayul”, which premiered on October 9, 2026 and is touring across India in the following months.<br><img src='img/events/phayul-premiere-2026.jpg' alt='Phayul Premiere' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2026-10-11",
