@@ -96,7 +96,21 @@ const tourEvents = [
         venue: "Phayul — Tibet Theatre Premiere",
         location: "Dharamshala, India",
         time: "",
-        details: "Jhola Techung is in Tibet Theatre's play “Phayul”, which premiered on October 9, 2026 and is touring across India in the following months.<br><img src='img/events/phayul-premiere-2026.jpg' alt='Phayul Premiere' onerror=\"this.style.display='none'\" style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+        details: "Jhola Techung is in Tibet Theatre's play “Phayul”, which premiered on October 9, 2026 and is touring across India in the following months.<br><img src='img/events/phayul-premiere-2026.jpg' alt='Phayul Premiere' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2026-10-10",
+        venue: "Phayul — Tibet Theatre: First Show",
+        location: "Dharamshala, India",
+        time: "",
+        details: "First show of Tibet Theatre's play “Phayul”, featuring Jhola Techung.<br><img src='img/events/phayul-premiere-2026.jpg' alt='Phayul First Show' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
+    },
+    {
+        date: "2026-11-14",
+        venue: "Phayul — Tibet Theatre at Prithvi Festival",
+        location: "Prithvi Theatre, Mumbai, India",
+        time: "18:00",
+        details: "Tibet Theatre's “Phayul”, featuring Jhola Techung, at Prithvi Festival 2026.<br>Shows at 6 PM &amp; 9 PM | Tibetan with English subtitles | 12+ yrs<br>Writer: Abhishek Majumdar · Tibetan Translation: Lhakpa Tsering · Directors: Harald Fuhrmann &amp; Lhakpa Tsering<br>Tickets: Prithvi Box Office 9920116930 (1 PM to 9 PM), <a href='https://prithvitheatre.org' target='_blank' rel='noopener'>prithvitheatre.org</a>, <a href='https://in.bookmyshow.com' target='_blank' rel='noopener'>bookmyshow.com</a><br><img src='img/events/phayul-prithvi-festival-2026.jpeg' alt='Phayul at Prithvi Festival' style='max-width: 100%; height: auto; margin-top: 1rem; border-radius: 8px;'>"
     },
     {
         date: "2026-10-11",
